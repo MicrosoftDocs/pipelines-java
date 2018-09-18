@@ -16,6 +16,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
+    codeCoverageToolOption: 'jaCoCo'
     goals: 'package'
 
 - task: CopyFiles@2
