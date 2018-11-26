@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'jacoco'
 
 group = 'helloworld'
 version = '1.0-SNAPSHOT'
@@ -16,3 +17,14 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version:'4.11'
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        xml.destination "${buildDir}/reports/code-cov-report.xml"
+        html.enabled true
+        html.destination "${buildDir}/reports/code-cov-report.html"
+    }
+}
+
+check.dependsOn jacocoTestReport
