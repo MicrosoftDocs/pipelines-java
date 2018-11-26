@@ -18,6 +18,15 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     goals: 'package'
 
+# Publish Code Coverage Results
+# Publish Cobertura or JaCoCo code coverage results from a build
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'JaCoCo' # Options: cobertura, jaCoCo
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/site/jacoco' # Optional
+    failIfCoverageEmpty: true # Optional
+
 - task: CopyFiles@2
   inputs:
     contents: '**/*.war'
