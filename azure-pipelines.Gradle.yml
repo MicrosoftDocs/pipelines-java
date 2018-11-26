@@ -17,7 +17,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build jacocoTestReport'
+    tasks: 'build'
 
 # Publish Cobertura or JaCoCo code coverage results from a build
 - task: PublishCodeCoverageResults@1
