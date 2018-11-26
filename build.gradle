@@ -25,5 +25,3 @@ jacocoTestReport {
         html.enabled true
         html.destination "${buildDir}/reports/code-cov-report.html"
 }
-
-check.dependsOn jacocoTestReport
