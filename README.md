@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/doh539/First%20Pipeline%20project/_apis/build/status/doh539.pipelines-java?branchName=master&jobName=Job)](https://dev.azure.com/doh539/First%20Pipeline%20project/_build/latest?definitionId=3&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
