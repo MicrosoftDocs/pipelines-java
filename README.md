@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/klibio/azure-pipeline-java/_apis/build/status/klibio.pipelines-java?branchName=master)](https://dev.azure.com/klibio/azure-pipeline-java/_build/latest?definitionId=2&branchName=master)
 
 # Contributing
 
