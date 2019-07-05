@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/zolty1902/BudgetApp/_apis/build/status/pawel-zolty.pipelines-java?branchName=master)](https://dev.azure.com/zolty1902/BudgetApp/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
