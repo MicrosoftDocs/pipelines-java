@@ -8,6 +8,13 @@ trigger:
 
 pool:
   vmImage: "ubuntu-16.04"
+strategy:
+  matrix:
+    jdk10:
+      jdk_version: "1.10"
+    jdk11:
+      jdkVersionOption: "1.11"
+  maxParallel: 2
 
 strategy:
   matrix:
