@@ -4,7 +4,7 @@
   <groupId>helloworld</groupId>
   <artifactId>helloworld</artifactId>
   <packaging>war</packaging>
-  <version>${BUILD_NUMBER}</version>
+  <version>static</version>
   <name>Hello world sample web app</name>
   <url>http://maven.apache.org</url>
 
