@@ -18,7 +18,7 @@
   </dependencies>
 
   <build>
-    <finalName>helloworld</finalName>
+    <finalName>helloworld-${BUILD_NUMBER}</finalName>
     <plugins>
       <plugin>
         <groupId>org.jacoco</groupId>
