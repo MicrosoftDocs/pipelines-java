@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/13269623658/13269623658/_apis/build/status/boshining.NeuronBlocks%20(1)?branchName=master)](https://dev.azure.com/13269623658/13269623658/_build/latest?definitionId=2&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
