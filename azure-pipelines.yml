@@ -11,7 +11,7 @@ pool:
 
 steps:
 - script: |
-    echo Starting the build
+    echo Testing that this step will actually start the build
     mvn package
   displayName: 'Starting build with Maven'
 - task: Maven@3
