@@ -1,6 +1,7 @@
 [![Build Status](https://dev.azure.com/v-lodeva/CI-CD%20pipeline/_apis/build/status/lohitdevana.pipelines-java?branchName=master)](https://dev.azure.com/v-lodeva/CI-CD%20pipeline/_build/latest?definitionId=2&branchName=master)
 # Contributing
 making changes to the readme file
+making a second change to the file 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.microsoft.com.
