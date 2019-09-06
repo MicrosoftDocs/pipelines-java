@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/sarathvr7/Creysto%20CRM/_apis/build/status/sarathkumar77.new?branchName=master)](https://dev.azure.com/sarathvr7/Creysto%20CRM/_build/latest?definitionId=2&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
