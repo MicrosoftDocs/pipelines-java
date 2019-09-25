@@ -1,4 +1,4 @@
-
+[![Build Status](https://macawdevops.visualstudio.com/Welkom%20Ben/_apis/build/status/BenJanssens.pipelines-java?branchName=master)](https://macawdevops.visualstudio.com/Welkom%20Ben/_build/latest?definitionId=78&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
