@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/biswajitdeb/WorkDemo/_apis/build/status/biswajitdeb11.pipelines-java?branchName=master)](https://dev.azure.com/biswajitdeb/WorkDemo/_build/latest?definitionId=4&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
