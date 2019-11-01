@@ -47,5 +47,24 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
+<repositories>
+<repository>
+  <id>dev-azure-com-ritgha9080-samplepipelinefeed</id>
+  <url>https://pkgs.dev.azure.com/ritgha9080/_packaging/SamplePipelineFeed/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+</repositories>
+<distributionManagement>
+	<repository>
+  <id>dev-azure-com-ritgha9080-samplepipelinefeed</id>
+  <url>https://pkgs.dev.azure.com/ritgha9080/_packaging/SamplePipelineFeed/maven/v1</url>
+</repository>
+	</distributionManagement>
 	
 </project>
