@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/v-kyljon/TestProject/_apis/build/status/kjones195.pipelines-java?branchName=master)](https://dev.azure.com/v-kyljon/TestProject/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
