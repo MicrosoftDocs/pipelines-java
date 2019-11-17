@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/munishsyal/nayaproject/_apis/build/status/munishsyal0308.PipelineRepo?branchName=master)](https://dev.azure.com/munishsyal/nayaproject/_build/latest?definitionId=8&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
