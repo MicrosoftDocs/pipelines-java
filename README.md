@@ -29,3 +29,4 @@ Privacy information can be found at https://privacy.microsoft.com/en-us/
 
 Microsoft and any contributors reserve all others rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.
+[![Build Status](https://dev.azure.com/chejuro1/Myfirstproject/_apis/build/status/chejuro1.pipelines-java?branchName=master)](https://dev.azure.com/chejuro1/Myfirstproject/_build/latest?definitionId=20&branchName=master)
