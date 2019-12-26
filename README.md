@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/E002115/Scrum%20Project/_apis/build/status/Mukulpatiar.pipelines-java?branchName=master)](https://dev.azure.com/E002115/Scrum%20Project/_build/latest?definitionId=5&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
