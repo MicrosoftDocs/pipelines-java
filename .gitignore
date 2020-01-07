@@ -29,3 +29,7 @@ hs_err_pid*
 
 *.iml
 target/
+
+# tmp files
+*.~
+*.tmp
