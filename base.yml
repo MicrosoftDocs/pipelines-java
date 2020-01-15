@@ -1,0 +1,14 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: A
+  steps:
+  - bash: echo "A"
+
+- job: B
+  steps:
+  - bash: echo "B"
