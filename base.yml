@@ -5,9 +5,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 jobs:
-- job: A
+- job: AA
   steps:
-  - bash: echo "A"
+  - bash: echo "AA"
+  - bash: uname -a
 
 - job: B
   steps:
