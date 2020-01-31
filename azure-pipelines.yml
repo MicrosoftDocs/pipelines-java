@@ -1,27 +1,17 @@
 trigger:
   - master
-  
-  strategy:
-    matrix:
-      jdk10_linux:
-        imageName: "ubuntu-16.04"
-        jdk_version: "1.10"
-      jdk11_windows:
-        imageName: "vs2017-win2016"
-        jdk_version: "1.11"
-    maxParallel: 2
-  
+
   pool:
-    vmImage: $(imageName)
-  
+    vmImage: 'Ubuntu-16.04'
+
   steps:
     - task: Maven@3
       inputs:
-        mavenPomFile: "pom.xml"
-        mavenOptions: "-Xmx3072m"
-        javaHomeOption: "JDKVersion"
-        jdkVersionOption: $(jdk_version)
-        jdkArchitectureOption: "x64"
-        publishJUnitResults: true
-        testResultsFiles: "**/TEST-*.xml"
-        goals: "package"
+        mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.8'
+        jdkArchitectureOption: 'x64'
+        publishJUnitResults: false
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        goals: 'package'
