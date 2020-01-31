@@ -15,6 +15,9 @@ strategy:
     windows:
       imageName: "vs2017-win2016"
   maxParallel: 3
+
+pool:
+  vmImage: $(imageName)
   strategy:
     matrix:
       jdk10:
@@ -22,18 +25,14 @@ strategy:
       jdk11:
         jdk_version: "1.11"
     maxParallel: 2
-pool:
-  vmImage: $(imageName)
-  
+    
 steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-
     jdkVersionOption: $(jdk_version)
-
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
