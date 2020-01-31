@@ -1,46 +1,27 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
 trigger:
-- master
-
-strategy:
-  matrix:
-    linux:
-      imageName: "ubuntu-16.04"
-    mac:
-      imageName: "macos-10.14"
-    windows:
-      imageName: "vs2017-win2016"
-  maxParallel: 3
-
-pool:
-  vmImage: $(imageName)
+  - master
+  
   strategy:
     matrix:
-      jdk10:
-        jdk_version: "1.7"
-      jdk11:
-        jdk_version: "1.8"
+      jdk10_linux:
+        imageName: "ubuntu-16.04"
+        jdk_version: "1.10"
+      jdk11_windows:
+        imageName: "vs2017-win2016"
+        jdk_version: "1.11"
     maxParallel: 2
-    
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: $(jdk_version)
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: "JaCoCo"
-    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-    failIfCoverageEmpty: true
+  
+  pool:
+    vmImage: $(imageName)
+  
+  steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: "pom.xml"
+        mavenOptions: "-Xmx3072m"
+        javaHomeOption: "JDKVersion"
+        jdkVersionOption: $(jdk_version)
+        jdkArchitectureOption: "x64"
+        publishJUnitResults: true
+        testResultsFiles: "**/TEST-*.xml"
+        goals: "package"
