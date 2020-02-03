@@ -5,7 +5,7 @@ strategy:
   matrix:
     jdk10_linux:
       imageName: "ubuntu-16.04"
-      jdk_version: "1.2"
+      jdk_version: "1.8"
     jdk11_windows:
       imageName: "vs2017-win2016"
       jdk_version: "1.8"
