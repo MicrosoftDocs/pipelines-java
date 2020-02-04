@@ -1,29 +1,13 @@
-trigger:
-- master
-
-strategy:
-  matrix:
-    jdk10_linux:
-      imageName: "ubuntu-16.04"
-      jdk_version: "1.8"
-    jdk11_windows:
-      imageName: "vs2017-win2016"
-      jdk_version: "1.8"
-  maxParallel: 2
-
-
-pool:
-    vmImage: $(imageName)
-  
-steps:
-    - task: Maven@3
-      inputs:
-        mavenPomFile: "pom.xml"
-        mavenOptions: "-Xmx3072m"
-        javaHomeOption: "JDKVersion"
-        jdkVersionOption: $(jdk_version)
-        jdkArchitectureOption: "x64"
-        publishJUnitResults: true
-        testResultsFiles: "**/TEST-*.xml"
-        goals: "package"
-  
+jobs:
+  - job: InitialA
+    steps:
+    - script: echo hello from initial A
+  - job: InitialB
+    steps:
+    - script: echo hello from initial B
+  - job: Subsequent
+    dependsOn:
+    - InitialA
+    - InitialB
+    steps:
+    - script: echo hello from subsequent
