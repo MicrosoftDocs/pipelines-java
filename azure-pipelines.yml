@@ -1,14 +1,23 @@
 jobs:
-  # track deployments on the environment
-- deployment: DeployWeb
-  displayName: deploy Web App
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  # creates an environment if it doesn't exist
-  environment: 'smarthotel-dev'
-  strategy:
-    # default deployment strategy, more coming...
-    runOnce:
-      deploy:
-        steps:
-        - script: echo my first deployment
+  - deployment: DeployWeb
+    displayName: deploy Web App
+    pool:
+      vmImage: 'Ubuntu-16.04'
+    # records deployment against bookings resource - Kubernetes namespace
+    environment: 'smarthotel-dev.bookings'
+    strategy: 
+      runOnce:
+        deploy:
+          steps:
+            # No need to explicitly pass the connection details
+          - task: KubernetesManifest@0
+            displayName: Deploy to Kubernetes cluster
+            inputs:
+              action: deploy
+              namespace: $(k8sNamespace)
+              manifests: |
+                $(System.ArtifactsDirectory)/manifests/*
+              imagePullSecrets: |
+                $(imagePullSecret)
+              containers: |
+                $(containerRegistry)/$(imageRepository):$(tag)
