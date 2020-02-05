@@ -1,13 +1,14 @@
 jobs:
-  - job: InitialA
-    steps:
-    - script: echo hello from initial A
-  - job: InitialB
-    steps:
-    - script: echo hello from initial B
-  - job: Subsequent
-    dependsOn:
-    - InitialA
-    - InitialB
-    steps:
-    - script: echo hello from subsequent
+  # track deployments on the environment
+- deployment: DeployWeb
+  displayName: deploy Web App
+  pool:
+    vmImage: 'Ubuntu-16.04'
+  # creates an environment if it doesn't exist
+  environment: 'smarthotel-dev'
+  strategy:
+    # default deployment strategy, more coming...
+    runOnce:
+      deploy:
+        steps:
+        - script: echo my first deployment
