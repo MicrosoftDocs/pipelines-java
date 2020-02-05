@@ -5,7 +5,7 @@ trigger:
     - master
     - releases/*
     exclude:
-    - releases/old*
+    - releases/old1*
 
 jobs:
   - job: Test
