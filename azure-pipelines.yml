@@ -1,23 +1,34 @@
-jobs:
-  - deployment: DeployWeb
-    displayName: deploy Web App
-    pool:
-      vmImage: 'Ubuntu-16.04'
-    # records deployment against bookings resource - Kubernetes namespace
-    environment: 'smarthotel-dev.bookings'
-    strategy: 
-      runOnce:
+jobs: 
+  - deployment: VMDeploy
+    displayName: web
+    environment:
+      name: smarthotel-dev
+      resourceType: VirtualMachine
+    strategy:
+      rolling:
+        maxParallel: 5  #for percentages, mention as x%
+        preDeploy:
+          steps:
+          - download: current
+            artifact: drop
+          - script: echo initialize, cleanup, backup, install certs
         deploy:
           steps:
-            # No need to explicitly pass the connection details
-          - task: KubernetesManifest@0
-            displayName: Deploy to Kubernetes cluster
+          - task: IISWebAppDeploymentOnMachineGroup@0
+            displayName: 'Deploy application to Website'
             inputs:
-              action: deploy
-              namespace: $(k8sNamespace)
-              manifests: |
-                $(System.ArtifactsDirectory)/manifests/*
-              imagePullSecrets: |
-                $(imagePullSecret)
-              containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+              WebSiteName: 'Default Web Site'
+              Package: '$(Pipeline.Workspace)/drop/**/*.zip'
+        routeTraffic:
+          steps:
+          - script: echo routing traffic
+        postRouteTraffic:
+          steps:
+          - script: echo health check post-route traffic
+        on:
+          failure:
+            steps:
+            - script: echo Restore from backup! This is on failure
+          success:
+            steps:
+            - script: echo Notify! This is on success
