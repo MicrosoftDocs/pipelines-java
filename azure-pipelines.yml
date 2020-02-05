@@ -1,34 +1,14 @@
-jobs: 
-  - deployment: VMDeploy
-    displayName: web
-    environment:
-      name: smarthotel-dev
-      resourceType: VirtualMachine
+jobs:
+  - job: Test
     strategy:
-      rolling:
-        maxParallel: 5  #for percentages, mention as x%
-        preDeploy:
-          steps:
-          - download: current
-            artifact: drop
-          - script: echo initialize, cleanup, backup, install certs
-        deploy:
-          steps:
-          - task: IISWebAppDeploymentOnMachineGroup@0
-            displayName: 'Deploy application to Website'
-            inputs:
-              WebSiteName: 'Default Web Site'
-              Package: '$(Pipeline.Workspace)/drop/**/*.zip'
-        routeTraffic:
-          steps:
-          - script: echo routing traffic
-        postRouteTraffic:
-          steps:
-          - script: echo health check post-route traffic
-        on:
-          failure:
-            steps:
-            - script: echo Restore from backup! This is on failure
-          success:
-            steps:
-            - script: echo Notify! This is on success
+      maxParallel: 2
+      matrix: 
+        US_IE:
+          Location: US
+          Browser: IE
+        US_Chrome:
+          Location: US
+          Browser: Chrome
+        Europe_Chrome:
+          Location: Europe
+          Browser: Chrome
