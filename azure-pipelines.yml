@@ -3,7 +3,7 @@ trigger:
   branches:
     include:
     - master
-    - releases/*
+    - releases*
     exclude:
     - releases/old1*
 
