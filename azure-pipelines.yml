@@ -1,3 +1,11 @@
+trigger:
+  branches:
+    include:
+    - master
+    - releases/*
+    exclude:
+    - releases/old*
+
 jobs:
   - job: Test
     strategy:
