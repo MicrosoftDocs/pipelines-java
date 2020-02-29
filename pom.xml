@@ -48,4 +48,21 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 	
+	<repositories>
+    <repository>
+      <id>maven-group</id>
+      <url>http://localhost:8081/repository/maven-public/</url>
+    </repository>
+  </repositories>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://localhost:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://localhost:8081/repository/maven-releases/</url>
+    </repository>
+  </distributionManagement>
+	
 </project>
