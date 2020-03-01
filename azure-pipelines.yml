@@ -6,6 +6,7 @@
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 variables:
   buildId: '$(Build.BuildId)'
+  System.Debug: true
 stages :
 - stage:
   displayName: Stage Test
