@@ -4,7 +4,6 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 name: 1  # build numbering format
-trigger: master
 variables:
   buildId: '$(Build.BuildId)'
 stages :
@@ -13,23 +12,17 @@ stages :
   jobs:  
   - job: Build
     displayName: Build
+    timeoutInMinutes: 1
     pool:
       vmImage: 'ubuntu-latest'
-
-jobs:
-  - job: AzurePipeline Job
-    timeoutInMinutes: 10
-    pool:
-      vmImage: 'ubuntu-latest'
-
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+      steps:
+      - task: Maven@3
+        inputs:
+          mavenPomFile: 'pom.xml'
+          mavenOptions: '-Xmx3072m'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          jdkArchitectureOption: 'x64'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          goals: 'package'
