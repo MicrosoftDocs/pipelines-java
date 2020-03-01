@@ -27,6 +27,7 @@ stages :
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           goals: 'package'
+      - script: wget  https://dev.azure.com/victorgallet/pipelines-java/_apis/build/builds/14/logs
 
     - job:
       displayName: Job Test 2
