@@ -7,15 +7,18 @@ name: 1  # build numbering format
 variables:
   buildId: '$(Build.BuildId)'
 stages :
-- stage: Build
-  displayName: Build image
+- stage:
+  displayName: Stage Test
+
   jobs:  
-  - job: Build
-    displayName: Build
+  - job:
+    displayName: Job Test
     timeoutInMinutes: 10
     pool:
       vmImage: 'ubuntu-latest'
+
       steps:
+
       - task: Maven@3
         inputs:
           mavenPomFile: 'pom.xml'
