@@ -11,14 +11,11 @@ stages :
   displayName: Stage Test
 
   jobs:  
-  - job:
-    displayName: Job Test
-    timeoutInMinutes: 10
-    pool:
-      vmImage: 'ubuntu-latest'
-
+    - job:
+      displayName: Job Test
+      pool:
+        vmImage: 'ubuntu-latest'
       steps:
-
       - task: Maven@3
         inputs:
           mavenPomFile: 'pom.xml'
@@ -29,3 +26,10 @@ stages :
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           goals: 'package'
+
+    - job:
+      displayName: Job Test 2
+      pool:
+        vmImage: 'ubuntu-16.04'
+      steps:
+      - bash: echo "Hello world"
