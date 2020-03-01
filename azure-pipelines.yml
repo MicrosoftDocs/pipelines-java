@@ -3,11 +3,24 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-trigger:
-- master
+name: 1  # build numbering format
+trigger: master
+variables:
+  buildId: '$(Build.BuildId)'
+stages :
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
 
-pool:
-  vmImage: 'ubuntu-latest'
+jobs:
+  - job: AzurePipeline Job
+    timeoutInMinutes: 10
+    pool:
+      vmImage: 'ubuntu-latest'
 
 steps:
 - task: Maven@3
