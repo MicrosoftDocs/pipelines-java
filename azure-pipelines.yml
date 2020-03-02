@@ -18,6 +18,7 @@ stages :
         vmImage: 'ubuntu-latest'
       steps:
       - task: Maven@3
+        displayName: UnitTest
         condition: not(contains(variables['Build.SourceVersionMessage'], '@noci'))
         inputs:
           mavenPomFile: 'pom.xml'
@@ -27,8 +28,19 @@ stages :
           jdkArchitectureOption: 'x64'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
-          goals: 'package'
-      - script: wget  https://dev.azure.com/victorgallet/pipelines-java/_apis/build/builds/14/logs
+          goals: 'test -P UnitTest'
+      - task: Maven@3
+        displayName: DBTest
+        condition: not(contains(variables['Build.SourceVersionMessage'], '@noci'))
+        inputs:
+          mavenPomFile: 'pom.xml'
+          mavenOptions: '-Xmx3072m'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          jdkArchitectureOption: 'x64'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          goals: 'test -P DBTest'
 
     - job:
       displayName: Job Test 2
