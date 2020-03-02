@@ -18,6 +18,7 @@ stages :
         vmImage: 'ubuntu-latest'
       steps:
       - task: Maven@3
+        condition: not(contains(variables['Build.SourceVersionMessage'], '@noci'))
         inputs:
           mavenPomFile: 'pom.xml'
           mavenOptions: '-Xmx3072m'
