@@ -7,6 +7,7 @@ name: $(Rev:.r)
 variables:
   buildId: '$(Build.BuildId)'
   System.Debug: true
+  runDbTest: false
 stages :
 - stage:
   displayName: Stage Test
@@ -16,8 +17,6 @@ stages :
       displayName: Job Test
       pool:
         vmImage: 'ubuntu-latest'
-      variables:
-        runDbTest: false
       steps:
       - task: Maven@3
         displayName: UnitTest
