@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/thierrychantier/evaluation%20for%20build/_apis/build/status/victor-gallet.pipelines-java?branchName=master)](https://dev.azure.com/thierrychantier/evaluation%20for%20build/_build/latest?definitionId=4&branchName=master)
 
 # Contributing
 
