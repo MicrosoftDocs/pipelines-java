@@ -19,7 +19,7 @@ stages :
       steps:
       - task: Maven@3
         displayName: UnitTest
-        condition: not(contains(variables['Build.SourceVersionMessage'], '@noci'))
+        condition: and(not(contains(variables['Build.SourceVersionMessage'], '@noci')),not(contains(variables['Build.SourceVersionMessage'], '@notests')))
         inputs:
           mavenPomFile: 'pom.xml'
           mavenOptions: '-Xmx3072m'
@@ -31,7 +31,7 @@ stages :
           goals: 'test -P UnitTest'
       - task: Maven@3
         displayName: DBTest
-        condition: not(contains(variables['Build.SourceVersionMessage'], '@noci'))
+        condition: and(not(contains(variables['Build.SourceVersionMessage'], '@noci')), contains(variables['Build.SourceVersionMessage'], '@dbtests'))
         inputs:
           mavenPomFile: 'pom.xml'
           mavenOptions: '-Xmx3072m'
