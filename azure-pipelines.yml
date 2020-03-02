@@ -16,8 +16,8 @@ stages :
       displayName: Job Test
       pool:
         vmImage: 'ubuntu-latest'
-        variables:
-          runDbTest: and(not(contains(variables['Build.SourceVersionMessage'], '@noci')), contains(variables['Build.SourceVersionMessage'], '@dbtests'))
+      variables:
+        runDbTest: False
       steps:
       - task: Maven@3
         displayName: UnitTest
@@ -33,7 +33,7 @@ stages :
           goals: 'test -P UnitTest'
       - task: Maven@3
         displayName: DBTest
-        condition: variables['runDbTests']
+        condition: or(variables['runDbTest'], and(not(contains(variables['Build.SourceVersionMessage'], '@noci')), contains(variables['Build.SourceVersionMessage'], '@dbtests')))
         inputs:
           mavenPomFile: 'pom.xml'
           mavenOptions: '-Xmx3072m'
