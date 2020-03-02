@@ -45,10 +45,20 @@ stages :
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           goals: 'test -P DBTest'
       - task: PublishTestResults@2
+        displayName: Merge Test Results
         inputs:
           testResultsFormat: 'JUnit'
           testResultsFiles: '**/TEST-*.xml' 
           mergeTestResults: true
+      - task: Maven@3
+        displayName: Package
+        inputs:
+          mavenPomFile: 'pom.xml'
+          mavenOptions: '-Xmx3072m'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          jdkArchitectureOption: 'x64'
+          goals: 'package -DskipTests=true'
 
     - job:
       displayName: Job Test 2
