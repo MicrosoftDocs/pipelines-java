@@ -5,9 +5,11 @@
 
 name: $(Rev:.r)
 variables:
-  buildId: '$(Build.BuildId)'
-  System.Debug: true
-  runDbTest: false
+  - group: external-variables
+  - name: buildId
+    value: '$(Build.BuildId)'
+  - name: System.Debug
+    value: true
 stages :
 - stage:
   displayName: Stage Test
