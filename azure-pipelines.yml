@@ -59,6 +59,14 @@ stages :
           jdkVersionOption: '1.8'
           jdkArchitectureOption: 'x64'
           goals: 'package -DskipTests=true'
+      - task: CopyFiles@2
+        inputs:
+          contents: 'target/**.war'
+          targetFolder: $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathToPublish: $(Build.ArtifactStagingDirectory)
+          artifactName: MyBuildOutputs
 
     - job:
       displayName: Job Test 2
