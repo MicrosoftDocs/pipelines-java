@@ -2,8 +2,6 @@ import com.microsoft.demo.Demo;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-import static org.junit.Assert.fail;
-
 
 @Category(UnitTest.class)
 public class MyUnitTest {
