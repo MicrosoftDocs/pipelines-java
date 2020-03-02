@@ -27,7 +27,7 @@ stages :
           jdkVersionOption: '1.8'
           jdkArchitectureOption: 'x64'
           publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          testResultsFiles: '**/surefire-reports/UNITTEST-*.xml'
           goals: 'test -P UnitTest'
       - task: Maven@3
         displayName: DBTest
@@ -39,7 +39,7 @@ stages :
           jdkVersionOption: '1.8'
           jdkArchitectureOption: 'x64'
           publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          testResultsFiles: '**/surefire-reports/DBTEST-*.xml'
           goals: 'test -P DBTest'
 
     - job:
