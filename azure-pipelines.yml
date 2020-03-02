@@ -83,8 +83,7 @@ stages :
   - deployment: Deploy
     displayName: Deploy job
     pool:
-      vmImage: 
-    environment: 'my.environment'
+      vmImage: 'ubuntu-latest'
     strategy:
       runOnce:
         deploy:
