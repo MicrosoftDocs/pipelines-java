@@ -21,7 +21,7 @@ stages :
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-        - script: curl -X GET -H "Authorization: Bearer $(System.AccessToken)" -H "Content-Type: application/json"  "$( echo "https://dev.azure.com/thierrychantier/$(System.TeamProject)/_apis/build/builds" | sed 's/ /%20/g' )"
+        - script: curl -X GET -H "Authorization: Bearer $(System.AccessToken)" https://dev.azure.com/thierrychantier/evaluation%20for%20%build/_apis/build/builds
 
 - stage: Build
   displayName: Build stage
