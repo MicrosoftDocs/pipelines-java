@@ -60,17 +60,17 @@ stages :
           jdkVersionOption: '1.8'
           jdkArchitectureOption: 'x64'
           goals: 'package -DskipTests=true'
-      # - task: CopyFiles@2
-      #   inputs:
-      #     contents: 'target/**.war'
-      #     targetFolder: $(Build.ArtifactStagingDirectory)
+      - task: CopyFiles@2
+        inputs:
+          contents: 'target/**.war'
+          targetFolder: $(Build.ArtifactStagingDirectory)
       # - task: PublishBuildArtifacts@1 ## Deprecated
       #   inputs:
       #     pathToPublish: $(Build.ArtifactStagingDirectory)
       #     artifactName: MonWarBuild
       - task: PublishPipelineArtifact@1 ## Recommended
         inputs:
-          #targetPath: '$(Pipeline.Workspace)'
+          targetPath: $(Build.ArtifactStagingDirectory)
           artifactName: MonWarPipeline
 
     - job:
