@@ -108,8 +108,6 @@ stages :
       runOnce:
         deploy:
           steps:
-            - task: ManualIntervention@8
-              displayName: 'Manual Intervention'              
             - task: DownloadPipelineArtifact@2 ## Recommended
               inputs:
                 artifact: MonWarPipeline
