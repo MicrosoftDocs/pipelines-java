@@ -13,7 +13,8 @@ variables:
 
 stages :
 
-- stage: Get Builds by Commit
+- stage: Status
+  displayName: Get Builds by Commit
   jobs:
     - job:   
       displayName: Get Builds by Commit
