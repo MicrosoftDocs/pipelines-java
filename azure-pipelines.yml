@@ -23,7 +23,7 @@ stages :
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-        - script: curl -X GET -H '$(AUTH)' "$( echo "https://dev.azure.com/thierrychantier/$(System.TeamProject)/_apis/build/builds" | sed 's/ /%20/g' )"
+        - script: curl -X GET -H '$(AUTH)' "$( echo "https://dev.azure.com/thierrychantier/$(System.TeamProject)/_apis/build/builds" | sed 's/ /%20/g' )" | jq -c '. .value[] | select(.sourceVersion | contains("$(Build.SourceVersion)")) | .id'
 
 - stage: Build
   displayName: Build stage
