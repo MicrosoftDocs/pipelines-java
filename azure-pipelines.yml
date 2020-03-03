@@ -31,7 +31,7 @@ stages :
   displayName: Build stage
 
   jobs:  
-    - job:
+    - job: Test
       displayName: Job Test
       pool:
         vmImage: 'ubuntu-latest'
@@ -90,6 +90,7 @@ stages :
 
     - job:
       displayName: Job Test 2
+      dependsOn: Test
       pool:
         vmImage: 'ubuntu-16.04'
       steps:
@@ -108,6 +109,7 @@ stages :
       runOnce:
         deploy:
           steps:
+            
             - task: DownloadPipelineArtifact@2 ## Recommended
               inputs:
                 artifact: MonWarPipeline
