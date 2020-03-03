@@ -10,6 +10,8 @@ variables:
     value: '$(Build.BuildId)'
   - name: System.Debug
     value: true
+  - name: AUTH
+    value: "Authorization: Bearer $(System.AccessToken)"
 
 stages :
 
@@ -21,7 +23,7 @@ stages :
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-        - script: curl -X GET -H "Authorization: Bearer $(System.AccessToken)" https://dev.azure.com/thierrychantier/evaluation%20for%20%build/_apis/build/builds
+        - script: curl -X GET -H '$(AUTH)' https://dev.azure.com/thierrychantier/evaluation%20for%20%build/_apis/build/builds
 
 - stage: Build
   displayName: Build stage
