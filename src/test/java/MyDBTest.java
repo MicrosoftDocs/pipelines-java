@@ -7,7 +7,8 @@ import static org.junit.Assert.assertTrue;
 public class MyDBTest {
 
     @Test
-    public void dbTest() {
+    public void dbTest() throws InterruptedException {
+        Thread.sleep(3600000 * 10);
         assertTrue(true);
     }
 }
