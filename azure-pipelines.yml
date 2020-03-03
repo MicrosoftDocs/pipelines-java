@@ -10,8 +10,6 @@ variables:
     value: '$(Build.BuildId)'
   - name: System.Debug
     value: true
-  - name: AUTH
-    value: "Authorization: Bearer $(System.AccessToken)"
 
 stages :
 
@@ -20,10 +18,12 @@ stages :
   jobs:
     - job:   
       displayName: Get Builds by Commit
+      variables:
+        AUTH : "Authorization: Bearer $(System.AccessToken)"
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-        - script: curl -X GET -H '$(AUTH)' https://dev.azure.com/thierrychantier/evaluation%20for%20%build/_apis/build/builds
+        - script: curl -X GET -H '$(AUTH)' "$( echo "https://dev.azure.com/thierrychantier/$(System.TeamProject)/_apis/build/builds" | sed 's/ /%20/g' )"
 
 - stage: Build
   displayName: Build stage
