@@ -33,8 +33,9 @@ stages :
   jobs:  
     - job: Test
       displayName: Job Test
+      timeoutInMinutes: 0 # 0 veut dire max value, par défaut c'est 60 minutes pour windows agent sur un git privé
       pool:
-        vmImage: 'ubuntu-latest'
+        name: 'BuildAgentPool'
       steps:
       - task: Maven@3
         displayName: UnitTest
@@ -96,7 +97,7 @@ stages :
       - task: PublishPipelineArtifact@1 ## Recommended
         inputs:
           targetPath: $(Build.ArtifactStagingDirectory)
-          artifactName: MonWarPipeline
+          artifactName: MonWarPipeline            
 
 - stage: Deploy
   displayName: Deploy stage
@@ -107,7 +108,7 @@ stages :
     displayName: Deploy job
     pool:
       vmImage: 'ubuntu-latest'
-    environment: 'Test'
+    environment: 'no_approbation'
     strategy:
       runOnce:
         deploy:
