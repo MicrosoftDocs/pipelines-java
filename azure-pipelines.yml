@@ -92,4 +92,4 @@ stages :
           - task: DownloadPipelineArtifact@1
             inputs:
               artifactName: 'MonWar'
-              downloadPath: '$(System.ArtifactsDirectory)/MonWar'
+              downloadPath: '$(Build.ArtifactStagingDirectory)/MonWar'
