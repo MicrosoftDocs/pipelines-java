@@ -21,7 +21,7 @@ stages :
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-      - script: wget -O https://dev.azure.com/$(TeamProject)/$(BuildDefinitionName)/_apis/git/repositories/$(Build.Repository.Id)/commits/$(Build.SourceVersion)/statuses?api-version=5.1
+      - script: wget -O https://dev.azure.com/$(System.TeamProject)/$(Build.DefinitionName)/_apis/git/repositories/$(Build.Repository.Id)/commits/$(Build.SourceVersion)/statuses?api-version=5.1
       
 - stage: Build
   displayName: Build stage
