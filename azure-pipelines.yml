@@ -12,17 +12,7 @@ variables:
     value: true
 
 stages :
-
-- stage: Status
-  displayName: Récupération des builds par commit
-  jobs:  
-  - job:
-    displayName: Job Test
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-      - script: wget -O https://dev.azure.com/$(System.TeamProject)/$(Build.DefinitionName)/_apis/git/repositories/$(Build.Repository.Id)/commits/$(Build.SourceVersion)/statuses?api-version=5.1
-      
+  
 - stage: Build
   displayName: Build stage
 
