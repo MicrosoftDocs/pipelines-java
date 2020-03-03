@@ -12,7 +12,16 @@ variables:
     value: true
 
 stages :
-  
+
+- stage: Get Builds by Commit
+  jobs:
+    - job:   
+      displayName: Get Builds by Commit
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+        - script: wget -O https://dev.azure.com/$(System.CollectionId)/$(Build.TriggeredBy.ProjectID)/_apis/build/builds
+
 - stage: Build
   displayName: Build stage
 
