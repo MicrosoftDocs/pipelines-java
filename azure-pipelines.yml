@@ -89,7 +89,7 @@ stages :
       runOnce:
         deploy:
           steps:
-          - task: DownloadPipelineArtifact@1
+          - task: DownloadBuildArtifacts@1
             inputs:
               artifactName: 'MonWar'
               downloadPath: '$(Build.ArtifactStagingDirectory)/MonWar'
