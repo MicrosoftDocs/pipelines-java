@@ -64,10 +64,10 @@ stages :
         inputs:
           contents: 'target/**.war'
           targetFolder: $(Build.ArtifactStagingDirectory)
-      - task: PublishBuildArtifacts@1 ## Deprecated
-        inputs:
-          pathToPublish: $(Build.ArtifactStagingDirectory)
-          artifactName: MonWarBuild
+      # - task: PublishBuildArtifacts@1 ## Deprecated
+      #   inputs:
+      #     pathToPublish: $(Build.ArtifactStagingDirectory)
+      #     artifactName: MonWarBuild
       - task: PublishPipelineArtifact@1 ## Recommended
         inputs:
           path: $(Build.ArtifactStagingDirectory)
@@ -100,6 +100,6 @@ stages :
             - task: DownloadPipelineArtifact@2 ## Recommended
               inputs:
                 artifact: MonWarPipeline
-            - task: DownloadBuildArtifacts@0 ## Deprecated
-              inputs:
-                artifactName: MonWarBuild
+            # - task: DownloadBuildArtifacts@0 ## Deprecated
+            #   inputs:
+            #     artifactName: MonWarBuild
