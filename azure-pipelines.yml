@@ -21,7 +21,7 @@ stages :
       pool:
         vmImage: 'ubuntu-latest'
       steps:
-        - script: wget -O https://dev.azure.com/$(System.CollectionId)/$(Build.TriggeredBy.ProjectID)/_apis/build/builds
+        - script: wget -O https://dev.azure.com/thierrychantier/$(System.TeamProject)/_apis/build/builds
 
 - stage: Build
   displayName: Build stage
