@@ -68,6 +68,10 @@ stages :
         inputs:
           pathToPublish: $(Build.ArtifactStagingDirectory)
           artifactName: MonWar
+      - task: PublishPipelineArtifact@1
+        inputs:
+          path: $(Build.ArtifactStagingDirectory)
+          artifact: MonWar
 
     - job:
       displayName: Job Test 2
@@ -89,7 +93,9 @@ stages :
       runOnce:
         deploy:
           steps:
-          - task: DownloadBuildArtifacts@1
-            inputs:
-              artifactName: 'MonWar'
-              downloadPath: '$(Build.ArtifactStagingDirectory)/MonWar'
+            - task: DownloadPipelineArtifact@2
+              inputs:
+                artifact: MonWar
+            - task: DownloadBuildArtifacts@0
+              inputs:
+                artifactName: 'MonWar'
