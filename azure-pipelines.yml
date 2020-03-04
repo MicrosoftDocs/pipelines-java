@@ -70,8 +70,7 @@ stages :
           scriptType: bash
           scriptLocation: inlineScript
           inlineScript: |
-            az storage container list --account-name $(secure-storage-account-name)  --account-key $(secure-storage-account-key)
-            az storage blob upload-batch -d test-az-cli -s $(System.DefaultWorkingDirectory)/target/surefire-reports --pattern *.xml --account-name $(secure-storage-account-name)  --account-key $(secure-storage-account-key)
+            az storage blob upload-batch -d test-az-cli -s $(System.DefaultWorkingDirectory)/target/surefire-reports/ --pattern **/*.xml --account-name $(secure-storage-account-name)  --account-key $(secure-storage-account-key)
       
       
       - task: PublishTestResults@2
