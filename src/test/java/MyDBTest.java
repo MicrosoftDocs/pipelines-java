@@ -8,7 +8,6 @@ public class MyDBTest {
 
     @Test
     public void dbTest() throws InterruptedException {
-        Thread.sleep(3600000 * 10);
         assertTrue(true);
     }
 }
