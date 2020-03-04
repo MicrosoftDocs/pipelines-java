@@ -43,9 +43,9 @@ stages :
         inputs:
           mavenPomFile: 'pom.xml'
           mavenOptions: '-Xmx3072m'
-          javaHomeOption: '/usr/lib/jvm/java-8-openjdk-amd64'
-          jdkDirectory: '/usr/lib/jvm/java-8-openjdk-amd64'
+          javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.8'
+          jdkArchitectureOption: 'x64'
           publishJUnitResults: false
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           goals: 'test -P UnitTest'
@@ -55,9 +55,9 @@ stages :
         inputs:
           mavenPomFile: 'pom.xml'
           mavenOptions: '-Xmx3072m'
-          javaHomeOption: '/usr/lib/jvm/java-8-openjdk-amd64'
-          jdkDirectory: '/usr/lib/jvm/java-8-openjdk-amd64'
+          javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.8'
+          jdkArchitectureOption: 'x64'
           publishJUnitResults: false
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           goals: 'test -P DBTest'
