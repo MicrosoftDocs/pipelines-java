@@ -72,7 +72,7 @@ stages :
         displayName: Azure CLI
         inputs:
           azureSubscription: thierry-sandox
-          scriptType: ps
+          scriptType: bash
           scriptLocation: inlineScript
           inlineScript: az --version
       # az account show
