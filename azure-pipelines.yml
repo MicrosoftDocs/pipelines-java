@@ -67,27 +67,38 @@ stages :
           testResultsFormat: 'JUnit'
           testResultsFiles: '**/TEST-*.xml' 
           mergeTestResults: true
-      - task: AzureFileCopy@4
+
+      - task: AzureCLI@2
+        displayName: Azure CLI
         inputs:
-          sourcePath: '**/surefire-reports/TEST-*.xml'
-          azureSubscription: 'thierry-sandox'
-          destination: AzureBlob
-          storage: 
-          containerName: # Required when destination == AzureBlob
-          #blobPrefix: # Optional
-          #resourceGroup: # Required when destination == AzureVMs
-          #resourceFilteringMethod: 'machineNames' # Optional. Options: machineNames, tags
-          #machineNames: # Optional
-          #vmsAdminUserName: # Required when destination == AzureVMs
-          #vmsAdminPassword: # Required when destination == AzureVMs
-          #targetPath: # Required when destination == AzureVMs
-          #additionalArgumentsForBlobCopy: # Optional
-          #additionalArgumentsForVMCopy: # Optional
-          #enableCopyPrerequisites: false # Optional
-          #copyFilesInParallel: true # Optional
-          #cleanTargetBeforeCopy: false # Optional
-          #skipCACheck: true # Optional
-          #sasTokenTimeOutInMinutes: # Optional
+          azureSubscription: thierry-sandox
+          scriptType: ps
+          scriptLocation: inlineScript
+          inlineScript: |
+              az --version
+              az account show
+      ## Tache non compatible avec un agent linux
+      # - task: AzureFileCopy@4
+      #   inputs:
+      #     sourcePath: '**/surefire-reports/TEST-*.xml'
+      #     azureSubscription: 'thierry-sandox'
+      #     destination: AzureBlob
+      #     storage: 
+      #     containerName: # Required when destination == AzureBlob
+      #     #blobPrefix: # Optional
+      #     #resourceGroup: # Required when destination == AzureVMs
+      #     #resourceFilteringMethod: 'machineNames' # Optional. Options: machineNames, tags
+      #     #machineNames: # Optional
+      #     #vmsAdminUserName: # Required when destination == AzureVMs
+      #     #vmsAdminPassword: # Required when destination == AzureVMs
+      #     #targetPath: # Required when destination == AzureVMs
+      #     #additionalArgumentsForBlobCopy: # Optional
+      #     #additionalArgumentsForVMCopy: # Optional
+      #     #enableCopyPrerequisites: false # Optional
+      #     #copyFilesInParallel: true # Optional
+      #     #cleanTargetBeforeCopy: false # Optional
+      #     #skipCACheck: true # Optional
+      #     #sasTokenTimeOutInMinutes: # Optional
 
 - stage: Package
   displayName: Package stage
