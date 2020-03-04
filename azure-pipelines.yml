@@ -27,9 +27,6 @@ stages :
 #         - script: cat output.txt
 #         - script: cat output.txt | jq -c '. .value[] | select(.sourceVersion | contains("$(Build.SourceVersion)")) | .id'
 
-- stage: Cache
-  displayName: Caching Mvn
-
 - stage: Build
   displayName: Build stage
 
