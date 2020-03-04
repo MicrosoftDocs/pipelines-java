@@ -13,19 +13,19 @@ variables:
 
 stages :
 
-- stage: Status
-  displayName: Get Builds by Commit
-  jobs:
-    - job:   
-      displayName: Get Builds by Commit
-      variables:
-        AUTH : "Authorization: Bearer $(System.AccessToken)"
-      pool:
-        vmImage: 'ubuntu-latest'
-      steps:
-        - script: curl -X GET -H '$(AUTH)' "$( echo "https://dev.azure.com/thierrychantier/$(System.TeamProject)/_apis/build/builds" | sed 's/ /%20/g' )" >> output.txt
-        - script: cat output.txt
-        - script: cat output.txt | jq -c '. .value[] | select(.sourceVersion | contains("$(Build.SourceVersion)")) | .id'
+# - stage: Status
+#   displayName: Get Builds by Commit
+#   jobs:
+#     - job:   
+#       displayName: Get Builds by Commit
+#       variables:
+#         AUTH : "Authorization: Bearer $(System.AccessToken)"
+#       pool:
+#         vmImage: 'ubuntu-latest'
+#       steps:
+#         - script: curl -X GET -H '$(AUTH)' "$( echo "https://dev.azure.com/thierrychantier/$(System.TeamProject)/_apis/build/builds" | sed 's/ /%20/g' )" >> output.txt
+#         - script: cat output.txt
+#         - script: cat output.txt | jq -c '. .value[] | select(.sourceVersion | contains("$(Build.SourceVersion)")) | .id'
 
 - stage: Build
   displayName: Build stage
@@ -74,9 +74,8 @@ stages :
           azureSubscription: thierry-sandox
           scriptType: ps
           scriptLocation: inlineScript
-          inlineScript: |
-              az --version
-              az account show
+          inlineScript: az --version
+      # az account show
       ## Tache non compatible avec un agent linux
       # - task: AzureFileCopy@4
       #   inputs:
