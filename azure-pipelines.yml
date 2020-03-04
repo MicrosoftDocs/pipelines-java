@@ -35,7 +35,7 @@ stages :
       displayName: Job Test
       timeoutInMinutes: 0 # 0 veut dire max value, par défaut c'est 60 minutes pour windows agent sur un git privé
       pool:
-        name: 'BuildAgentPool'
+        vmImage: 'ubuntu-latest'
       steps:
       - task: Maven@3
         displayName: UnitTest
