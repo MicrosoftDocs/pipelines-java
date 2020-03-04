@@ -35,7 +35,7 @@ stages :
       displayName: Job Test
       variables:
         MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
-        MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
+        MAVEN_OPTS: '-Xmx3072m -Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
       timeoutInMinutes: 0 # 0 veut dire max value, par défaut c'est 60 minutes pour windows agent sur un git privé
       pool:
         vmImage: 'ubuntu-latest'
@@ -53,7 +53,7 @@ stages :
         condition: and(not(contains(variables['Build.SourceVersionMessage'], '@noci')),not(contains(variables['Build.SourceVersionMessage'], '@notests')))
         inputs:
           mavenPomFile: 'pom.xml'
-          mavenOptions: '-Xmx3072m'
+          mavenOptions: $(MAVEN_OPTS)
           javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.8'
           jdkArchitectureOption: 'x64'
@@ -65,7 +65,7 @@ stages :
         condition: or(eq(variables['runDbTest'], 'true'), and(not(contains(variables['Build.SourceVersionMessage'], '@noci')), contains(variables['Build.SourceVersionMessage'], '@dbtests')))
         inputs:
           mavenPomFile: 'pom.xml'
-          mavenOptions: '-Xmx3072m'
+          mavenOptions: $(MAVEN_OPTS)
           javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.8'
           jdkArchitectureOption: 'x64'
