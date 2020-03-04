@@ -74,8 +74,10 @@ stages :
           azureSubscription: thierry-sandox
           scriptType: bash
           scriptLocation: inlineScript
-          inlineScript: az --version
-      # az account show
+          inlineScript: |
+            az --version
+            az storage container list
+            az storage blob upload -c test-az-cli -f **/TEST-*.xml -n tests.xml
       ## Tache non compatible avec un agent linux
       # - task: AzureFileCopy@4
       #   inputs:
