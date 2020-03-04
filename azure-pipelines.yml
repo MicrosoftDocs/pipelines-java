@@ -76,10 +76,7 @@ stages :
           scriptType: bash
           scriptLocation: inlineScript
           inlineScript: |
-            az --version
-            az account show
             az storage container list --acount-name $(secure-storage-account-name)  --acount-key $(secure-storage-account-key)
-            az storage blob upload -c test-az-cli -f **/TEST-*.xml -n tests.xml --acount-name $(secure-storage-account-name)  --acount-key $(secure-storage-account-key)
       ## Tache non compatible avec un agent linux
       # - task: AzureFileCopy@4
       #   inputs:
