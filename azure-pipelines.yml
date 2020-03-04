@@ -78,7 +78,7 @@ stages :
           scriptLocation: inlineScript
           inlineScript: |
             az storage container list --account-name $(secure-storage-account-name)  --account-key $(secure-storage-account-key)
-            az storage blob upload-batch -d test-az-cli -s $(System.DefaultWorkingDirectory) --pattern **/TEST-*.xml --account-name $(secure-storage-account-name)  --account-key $(secure-storage-account-key)
+            az storage blob upload-batch -d test-az-cli -s $(System.DefaultWorkingDirectory)/target/surefire-reports --pattern **/TEST-*.xml --account-name $(secure-storage-account-name)  --account-key $(secure-storage-account-key)
       ## Tache non compatible avec un agent linux
       # - task: AzureFileCopy@4
       #   inputs:
