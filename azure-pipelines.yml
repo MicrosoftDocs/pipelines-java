@@ -27,16 +27,30 @@ stages :
 #         - script: cat output.txt
 #         - script: cat output.txt | jq -c '. .value[] | select(.sourceVersion | contains("$(Build.SourceVersion)")) | .id'
 
+- stage: Cache
+  displayName: Caching Mvn
+
 - stage: Build
   displayName: Build stage
 
-  jobs:  
+  jobs:
     - job: Test
       displayName: Job Test
+      variables:
+        MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
+        MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
       timeoutInMinutes: 0 # 0 veut dire max value, par défaut c'est 60 minutes pour windows agent sur un git privé
       pool:
         vmImage: 'ubuntu-latest'
       steps:
+      - task: Cache@2
+        inputs:
+          key: 'maven | "$(Agent.OS)" | **/pom.xml'
+          restoreKeys: |
+             maven | "$(Agent.OS)"
+             maven
+          path: $(MAVEN_CACHE_FOLDER)
+        displayName: Cache Maven local repo
       - task: Maven@3
         displayName: UnitTest
         condition: and(not(contains(variables['Build.SourceVersionMessage'], '@noci')),not(contains(variables['Build.SourceVersionMessage'], '@notests')))
