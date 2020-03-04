@@ -61,13 +61,6 @@ stages :
           publishJUnitResults: false
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           goals: 'test -P DBTest'
-      - task: PublishTestResults@2
-        displayName: Merge Test Results
-        inputs:
-          testResultsFormat: 'JUnit'
-          testResultsFiles: '**/TEST-*.xml' 
-          mergeTestResults: true
-
       - task: AzureCLI@2
         displayName: Azure CLI
         inputs:
@@ -78,6 +71,14 @@ stages :
           inlineScript: |
             az storage container list --account-name $(secure-storage-account-name)  --account-key $(secure-storage-account-key)
             az storage blob upload-batch -d test-az-cli -s $(System.DefaultWorkingDirectory) --pattern .xml --account-name $(secure-storage-account-name)  --account-key $(secure-storage-account-key)
+
+      - task: PublishTestResults@2
+        displayName: Merge Test Results
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/TEST-*.xml' 
+          mergeTestResults: true
+
       ## Tache non compatible avec un agent linux
       # - task: AzureFileCopy@4
       #   inputs:
