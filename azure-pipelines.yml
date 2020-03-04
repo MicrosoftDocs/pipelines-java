@@ -78,7 +78,7 @@ stages :
           inlineScript: |
             az --version
             az account show
-            az storage container list
+            az storage container list --acount-name $servicePrincipalId --acount-key $servicePrincipalKey
             az storage blob upload -c test-az-cli -f **/TEST-*.xml -n tests.xml
       ## Tache non compatible avec un agent linux
       # - task: AzureFileCopy@4
