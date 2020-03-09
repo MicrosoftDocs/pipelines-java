@@ -6,8 +6,8 @@
 trigger:
 - master
 
-#pool:
-#  vmImage: 'ubuntu-latest'
+pool:
+  vmImage: 'ubuntu-latest'
 
 strategy:
   matrix:
@@ -17,8 +17,8 @@ strategy:
       jdk_version: "1.11"
   maxParallel: 2
 
-pool:
-  vmImage: $(imageName)
+#pool:
+#  vmImage: $(imageName)
 
 steps:
 - task: Maven@3
