@@ -3,8 +3,12 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-trigger:
-- master
+#trigger:
+#- master
+
+pr: # pr=PullRequest alternative option to trigger component 
+  - master
+  - releases/*
 
 pool:
   vmImage: 'ubuntu-latest'
