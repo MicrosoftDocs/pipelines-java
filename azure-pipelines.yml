@@ -7,7 +7,7 @@
 #- master
 
 pr: # pr=PullRequest alternative option to trigger component 
-  - master
+  - dev
   - releases/*
 
 pool:
