@@ -27,7 +27,7 @@ steps:
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     #jdkVersionOption: '1.8'
-    jdkVersionOption: "$(jdk_version)"
+    jdkVersionOption: '$(jdk_version)'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
