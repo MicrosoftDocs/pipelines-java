@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/santoshganapa/DotNetCoreApp/_apis/build/status/JavaPipelineApp-Maven-CI?branchName=master)](https://dev.azure.com/santoshganapa/DotNetCoreApp/_build/latest?definitionId=7&branchName=master)
 
 # Contributing
 
