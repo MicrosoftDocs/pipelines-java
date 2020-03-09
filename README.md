@@ -1,5 +1,18 @@
 [![Build Status](https://dev.azure.com/santoshganapa/DotNetCoreApp/_apis/build/status/JavaPipelineApp-Maven-CI?branchName=master)](https://dev.azure.com/santoshganapa/DotNetCoreApp/_build/latest?definitionId=7&branchName=master)
 
+
+This is updated to check whether build-pipeline gets triggered or not when we raise a pull request against master branch. This is added as triggere by using below config element in azure-pipeline.yaml
+
+---------------commenteed---------------
+#trigger:
+#- master
+----------------added pr section -----------
+pr: # pr=PullRequest alternative option to trigger component
+  - master
+  - releases/*
+
+-----------------------------------------
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
