@@ -10,12 +10,14 @@ strategy:
   matrix:
     jdk10:
       jdk_version: "1.10"
+      imageName: "ubuntu-16.04"
     jdk11:
       jdk_version: "1.11"
+      imageName: "macos-10.14"
   maxParallel: 2
 
 pool:
-  vmImage: "ubuntu-16.04"
+  vmImage: $(imageName)
 
 steps:
 - task: Maven@3
