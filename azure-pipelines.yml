@@ -20,11 +20,3 @@ steps:
       publishJUnitResults: false
       testResultsFiles: '**/TEST-*.xml'
       goals: 'package'
-
-jobs:
-- job: myJob1
-  steps:
-  - bash: echo "Hello world 1"
-- job: myJob2
-  steps:
-  - bash: echo "Hello world 2"
