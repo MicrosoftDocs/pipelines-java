@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/narenderkrathod/PipelineProject/_apis/build/status/PipelineProject?branchName=azure-pipelines)](https://dev.azure.com/narenderkrathod/PipelineProject/_build/latest?definitionId=6&branchName=azure-pipelines)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
