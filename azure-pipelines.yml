@@ -5,7 +5,7 @@
 name: GitHub-Pipeline-Demo
 
 trigger:
-- master
+- none
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -15,6 +15,10 @@ steps:
   submodules: true
   persistCredentials: true
   clean: true
+- bash: git config user.email azure@devops && git config user.name "Azure DevOps" && git status
+  displayName: Configure git
+- bash: git checkout $(Build.SourceBranchName)
+  displayName: Checkout $(Build.SourceBranchName)
   
 - task: Maven@3
   inputs:
