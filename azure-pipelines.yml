@@ -18,7 +18,7 @@ steps:
 - bash: git config user.email azure@devops && git config user.name "Azure DevOps" && git status
   displayName: Configure git
 - bash: git checkout $(Build.SourceBranchName)
-  displayName: Checkout $(Build.SourceBranchName)
+  displayName: Checkout branch $(Build.SourceBranchName)
   
 - task: Maven@3
   inputs:
