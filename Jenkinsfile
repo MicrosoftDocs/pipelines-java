@@ -3,7 +3,7 @@ node {
     checkout scm
 
     //docker.withServer('tcp://172.31.43.67:4243')
-     docker.withServer('tcp://localhost:4243'){
+     docker.withServer('tcp://localhost:4243'.'swarm-certs'){
         // def customImage = docker.build("my-image:${env.BUILD_ID}")
        //  customImage.push()
 
