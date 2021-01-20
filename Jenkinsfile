@@ -1,7 +1,7 @@
-node('node') {
-  def maven = docker.image('maven:latest')
-  maven.pull() // make sure we have the latest available from Docker Hub
-  maven.inside {
-   git 'https://github.com/chejuro1/pipelines-java.git'
-  }
+node {
+    checkout scm
+    def customImage = docker.build("my-image:${env.BUILD_ID}")
+    customImage.push()
+
+    customImage.push('latest')
 }
