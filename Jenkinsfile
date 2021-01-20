@@ -1,4 +1,4 @@
-node('linux') {
+node('node') {
   def maven = docker.image('maven:latest')
   maven.pull() // make sure we have the latest available from Docker Hub
   maven.inside {
