@@ -12,6 +12,7 @@ public class MyTest {
     @Test
     public void test_method_2() {
     }
+
     @Test
     public void test_method_3() {
         Assert.assertEquals("TEST", "test");

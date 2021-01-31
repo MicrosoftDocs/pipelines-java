@@ -5,8 +5,9 @@
 #test java project
 #
 trigger:
-- main
-
+  branches:
+    include:
+      - '*'
 pool:
   vmImage: 'ubuntu-latest'
 
