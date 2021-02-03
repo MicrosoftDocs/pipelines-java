@@ -1,3 +1,4 @@
+Install-Module PSYaml
 import-module psyaml
 $yamlString = @"
 anArray:
