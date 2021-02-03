@@ -20,10 +20,9 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'    
-- task: AzurePowerShell@4
-  displayName: 'Check Resource Name Availability'
+- task: AzurePowerShell@5
   inputs:
-    connectedServiceNameARM: c94bda7a-0577-4374-9c53-0e46a9fb0f70
-    scriptType: filePath
-    scriptPath: '$(Pipeline.Workspace)/sampleps.ps1'
-    azurePowershellVersion: latestVersion
+    azureSubscription: 'DTLQA'
+    ScriptType: 'FilePath'
+    ScriptPath: 'sampleps.ps1'
+    azurePowerShellVersion: 'LatestVersion'
