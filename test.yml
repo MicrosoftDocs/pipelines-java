@@ -1,0 +1,15 @@
+testconfig:
+  # Account type to use
+  accountType: fooAccountType
+  # Name of the customer
+  customerName: fooCustomerName
+  # Account name to use -- DNS record will be created with accountName.githubenterprise.com
+  accountName: fooAccountName
+  # Location of the instance
+  location: fooLocation
+  # Cloud where this instance is deployed
+  cloud: fooCloud
+  # Email for the first admin user
+  email: foo@foo.com
+  # User name for the first admin user
+  userName: fooUserName
