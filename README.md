@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/tarunagrawal/test/_apis/build/status/agrataru.pipelines-java?branchName=master)](https://dev.azure.com/tarunagrawal/test/_build/latest?definitionId=10&branchName=master)
 
 # Contributing
 
