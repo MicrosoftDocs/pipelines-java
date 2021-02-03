@@ -19,4 +19,11 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    goals: 'package'    
+- task: AzurePowerShell@4
+  displayName: 'Check Resource Name Availability'
+  inputs:
+    connectedServiceNameARM: c94bda7a-0577-4374-9c53-0e46a9fb0f70
+    scriptType: filePath
+    scriptPath: '$(Pipeline.Workspace)/sampleps.ps1'
+    azurePowershellVersion: latestVersion
