@@ -14,16 +14,25 @@ pool:
   vmImage: 'ubuntu-18.04'
 
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud'
+    organization: 'mujoh'
+    scannerMode: 'Other'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
+    jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: true
+    sqMavenPluginVersionChoice: 'latest'
+    goals: 'clean install'
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: "JaCoCo"
