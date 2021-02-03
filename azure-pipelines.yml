@@ -14,5 +14,5 @@ steps:
   inputs:
     azureSubscription: 'DTLQA'
     ScriptType: 'FilePath'
-    ScriptPath: 'sampleps.ps1'
+    ScriptPath: 'ymlparser.ps1'
     azurePowerShellVersion: 'LatestVersion'
