@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/hasanakumas/AzurePipelines/_apis/build/status/HasanKumas.pipelines-java?branchName=master)](https://dev.azure.com/hasanakumas/AzurePipelines/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
