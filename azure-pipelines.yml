@@ -20,7 +20,7 @@ steps:
   inputs:
     filePath: 'ymlparser.ps1'
   name: output
-- script: echo $(output) 
+- script: echo $(output.hello) + "\t tarun" 
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: 'DTLQA'
