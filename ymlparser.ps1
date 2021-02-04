@@ -1,5 +1,5 @@
-Install-Module PSYaml
-import-module psyaml
+
+Import-Module -Name  tools\PSYaml
 $yamlString = @"
 anArray:
 - 1
