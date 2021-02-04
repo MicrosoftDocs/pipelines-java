@@ -4,8 +4,6 @@ Import-Module FXPSYaml
 $content = ''
 foreach ($line in $fileContent) { $content = $content + "`n" + $line }
 $yaml = ConvertFrom-YAML $content
-$yaml
-Write-Host ("Account name is " + $yaml.testconfig.accountType)
 $accountTypeVal = $yaml.testconfig.accountType
 Write-Host '##vso[task.setvariable variable=accountType;]'$accountTypeVal
 
