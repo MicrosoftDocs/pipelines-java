@@ -1,20 +1,10 @@
-
 Install-Module -Name FXPSYaml -Scope CurrentUser -Force
 Import-Module FXPSYaml
-$yamlString = @"
-anArray:
-- 1
-- 2
-- 3
-nested:
-  array:
-  - this
-  - is
-  - an
-  - array
-hello: world
-"@
-$yaml = ConvertFrom-YAML $yamlString
-Write-Host ("Account name is " + $yaml.hello)
-Write-Host '##vso[task.setvariable variable=foo;]'+$yaml
+[string[]]$fileContent = Get-Content "$PSScriptRoot\test.yml"
+$content = ''
+foreach ($line in $fileContent) { $content = $content + "`n" + $line }
+$yaml = ConvertFrom-YAML $content
 $yaml
+Write-Host ("Account name is " + $yaml.testconfig.accountType)
+Write-Host '##vso[task.setvariable variable=accountType;]'+$yaml.testconfig.accountType
+
