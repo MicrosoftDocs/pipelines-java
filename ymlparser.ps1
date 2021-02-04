@@ -1,5 +1,6 @@
 
-Import-Module -Name  tools\PSYaml
+Install-Module -Name FXPSYaml -Scope CurrentUser -Force
+Import-Module FXPSYaml
 $yamlString = @"
 anArray:
 - 1
@@ -13,5 +14,5 @@ nested:
   - array
 hello: world
 "@
-$YamlObject = ConvertFrom-YAML $yamlString
-ConvertTo-YAML $YamlObject
+ConvertFrom-YAML $yamlString
+
