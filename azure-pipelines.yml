@@ -20,10 +20,4 @@ steps:
   inputs:
     filePath: 'ymlparser.ps1'
   name: output
-- script: echo $(output.foo) 
-- task: AzurePowerShell@5
-  inputs:
-    azureSubscription: 'DTLQA'
-    ScriptType: 'FilePath'
-    ScriptPath: 'ymlparser.ps1'
-    azurePowerShellVersion: 'LatestVersion'
+- script: echo $(output.foo.hello)

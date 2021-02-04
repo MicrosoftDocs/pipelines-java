@@ -15,4 +15,5 @@ nested:
 hello: world
 "@
 $yaml = ConvertFrom-YAML $yamlString
-Write-Host '##vso[task.setvariable variable=foo;isOutput=true]$yaml'
+Write-Host ("Account name is " + $yaml.hello)
+Write-Host '##vso[task.setvariable variable=foo;]$yaml'
