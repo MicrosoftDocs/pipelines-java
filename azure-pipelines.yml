@@ -12,7 +12,7 @@ pool:
 steps:  
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: 'tools\PSYaml.zip'
+    archiveFilePatterns: 'tools/PSYaml.zip'
     destinationFolder: 'tools'
     cleanDestinationFolder: false
     overwriteExistingFiles: true
