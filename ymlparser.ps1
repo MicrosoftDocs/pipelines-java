@@ -17,3 +17,4 @@ hello: world
 $yaml = ConvertFrom-YAML $yamlString
 Write-Host ("Account name is " + $yaml.hello)
 Write-Host '##vso[task.setvariable variable=foo;]'+$yaml
+$yaml
