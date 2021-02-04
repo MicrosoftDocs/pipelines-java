@@ -5,6 +5,6 @@ $content = ''
 foreach ($line in $fileContent) { $content = $content + "`n" + $line }
 $yaml = ConvertFrom-YAML $content
 $yaml
-Write-Host ("Account name is " + $yaml.testconfig.accountType)
-Write-Host '##vso[task.setvariable variable=accountType;]'+$yaml.testconfig.accountType
+Write-Host ("Account name is " + $(yaml.testconfig.accountType))
+Write-Host '##vso[task.setvariable variable=accountType;]'+ $(yaml.testconfig.accountType)
 
