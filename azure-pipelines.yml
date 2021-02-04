@@ -13,4 +13,4 @@ steps:
 - task: PowerShell@2
   inputs:
     filePath: 'ymlparser.ps1'  
-- script: echo "$accountType \t $customerName"
+- script: echo "$(customerName)"
