@@ -7,5 +7,5 @@ $yaml = ConvertFrom-YAML $content
 $yaml
 Write-Host ("Account name is " + $yaml.testconfig.accountType)
 $accountTypeVal = $yaml.testconfig.accountType
-Write-Host '##vso[task.setvariable variable=accountType;]'+ $accountTypeVal
+Write-Host '##vso[task.setvariable variable=accountType;]'$accountTypeVal
 
