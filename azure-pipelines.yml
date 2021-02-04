@@ -16,6 +16,9 @@ steps:
     destinationFolder: 'tools'
     cleanDestinationFolder: false
     overwriteExistingFiles: true
+- task: PowerShell@2
+  inputs:
+    filePath: 'ymlparser.ps1'
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: 'DTLQA'
