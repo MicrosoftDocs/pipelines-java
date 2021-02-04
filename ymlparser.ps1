@@ -14,5 +14,4 @@ nested:
   - array
 hello: world
 "@
-ConvertFrom-YAML $yamlString
-
+$yaml = ConvertFrom-YAML $yamlString
