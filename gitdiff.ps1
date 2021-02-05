@@ -1,4 +1,5 @@
-$files=$(git diff-tree --no-commit-id --name-only -r $(Build.SourceVersion))
+$sourceversion=$args[0]
+$files=$(git diff-tree --no-commit-id --name-only -r $sourceversion)
 $temp=$files -split ' '
 $count=$temp.Length
 echo "Total changed $count files"
