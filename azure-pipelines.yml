@@ -9,7 +9,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:  
+steps:
+- task: PowerShell@2
+  inputs:
+    filePath: 'gitdiff.ps1'    
 - task: PowerShell@2
   inputs:
     filePath: 'ymlparser.ps1'
