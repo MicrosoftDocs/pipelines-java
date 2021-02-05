@@ -1,6 +1,6 @@
 testconfig:
   # Account type to use
-  accountType: fooAccountType1
+  accountType: fooAccountType2
   # Name of the customer
   customerName: fooCustomerName
   # Account name to use -- DNS record will be created with accountName.githubenterprise.com
