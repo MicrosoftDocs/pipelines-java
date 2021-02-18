@@ -1,11 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('Fluffy Build') {
+    stage('Buzz Build') {
       steps {
         echo 'buzz'
-        sh '''echo Another Placeholder
-'''
+      }
+    }
+
+    stage('buzz test') {
+      steps {
+        junit '**/surefire-reports/**/*.xml'
       }
     }
 
