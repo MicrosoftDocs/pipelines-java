@@ -9,7 +9,7 @@ pipeline {
 
     stage('Fluffy Test') {
       steps {
-        echo 'buzz,bees'
+        sh 'sleep 5'
       }
     }
 
