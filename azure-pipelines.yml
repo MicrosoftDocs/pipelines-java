@@ -2,6 +2,10 @@
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
+#norun
+
+#trigger:
+#- main
 
 trigger:
   branches:
@@ -14,14 +18,51 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
+  MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+
+# name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+#name: $(grep version pom.xml | grep -v '<?xml' | grep '<version>'|head -n 1|awk '{print $1}'| cut -d'>' -f 2 | cut -d'<' -f 1)
+
+
+
+
+
 steps:
 - task: Maven@3
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
+    mavenOptions: '-Xmx3072m $(MAVEN_OPTS)'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- task: Cache@2
+  #condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  inputs:
+    key: 'maven | "$(Agent.OS)" | **/pom.xml'
+    restoreKeys: |
+      maven | "$(Agent.OS)"
+      maven
+    path: $(MAVEN_CACHE_FOLDER)
+  displayName: Cache Maven local repo
+
+- script: mvn install -B -e
+
+
+# - script: echo '$(Build.BuildNumber)' # outputs customized build number like project_def_master_20200828.1
+
+
+#- script: echo mvn --version
+#- script: mvn -N -q DforceStdout help:evaluate -Dexpression-project.version
+
+#version=$(grep version pom.xml | grep -v '<?xml' | grep '<version>'|head -n 1|awk '{print $1}'| cut -d'>' -f 2 | cut -d'<' -f 1) echo "##vso[task.setvariable variable=version]$version"
+
+
