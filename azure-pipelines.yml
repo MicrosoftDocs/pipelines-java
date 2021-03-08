@@ -8,7 +8,7 @@ trigger:
     include:
     - azure-pipelines
     exclude:
-    - master
+    - releases/azure-cache
 
 pool:
   vmImage: 'ubuntu-latest'
