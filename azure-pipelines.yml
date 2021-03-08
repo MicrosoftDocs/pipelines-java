@@ -7,7 +7,7 @@
 #trigger:
 #- main
 
-pr:
+trigger:
   branches:
     include:
     - dev_tesbranch/*
