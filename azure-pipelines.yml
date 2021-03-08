@@ -7,7 +7,7 @@
 #trigger:
 #- main
 
-trigger:
+pr:
   branches:
     include:
     - master
