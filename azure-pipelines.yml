@@ -6,6 +6,7 @@
 trigger:
   branches:
     include:
+    - master
     - releases/dev_tesbranch*
     exclude:
     - releases/azure-cache*
