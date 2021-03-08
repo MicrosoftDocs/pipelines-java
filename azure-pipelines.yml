@@ -13,7 +13,7 @@ trigger:
     - master
     - dev_tesbranch
     exclude:
-    - releases/azure-cache*
+    - azure-cache
 
 pool:
   vmImage: 'ubuntu-latest'
