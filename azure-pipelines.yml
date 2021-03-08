@@ -10,7 +10,7 @@
 trigger:
   branches:
     include:
-    - dev_tesbranch/*
+    - dev_tesbranch
     exclude:
     - azure-cache/*
 
