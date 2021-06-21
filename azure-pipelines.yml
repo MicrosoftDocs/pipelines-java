@@ -6,8 +6,7 @@
 trigger:
 - master
 
-pool:
-  vmImage: linuxvm01
+pool: linux-pool
 
 steps:
 - task: Maven@3
