@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/jotavar/sandbox/_apis/build/status/jotavar.pipelines-java?branchName=master)](https://dev.azure.com/jotavar/sandbox/_build/latest?definitionId=5&branchName=master)
 
 # Contributing
 
