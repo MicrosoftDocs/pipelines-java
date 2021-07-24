@@ -1,6 +1,10 @@
 trigger:
 - master
 # Maven
+pool:
+  vmImage: ubuntu-latest
+
+steps:
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'ADO-to-SONARQUBE-local'
@@ -16,12 +20,6 @@ trigger:
 - task: SonarQubePublish@4
   inputs:
     pollingTimeoutSec: '300'
-
-
-pool:
-  vmImage: ubuntu-latest
-
-steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
