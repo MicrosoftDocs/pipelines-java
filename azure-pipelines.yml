@@ -1,3 +1,5 @@
+trigger:
+- master
 # Maven
 - task: SonarQubePrepare@4
   inputs:
@@ -14,8 +16,7 @@
 - task: SonarQubePublish@4
   inputs:
     pollingTimeoutSec: '300'
-trigger:
-- master
+
 
 pool:
   vmImage: ubuntu-latest
