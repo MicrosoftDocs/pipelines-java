@@ -5,13 +5,13 @@ public class MyTest {
     @Test
     public void test_method_1() {
         Demo d = new Demo();
-        d.DoSomething(true);
+        assertNull(d.DoSomething(true));
     }
 
     @Test
     public void test_method_2() {
         Demo d1 = new Demo();
-        d1.DoSomething(false);
+        assertNull(d1.DoSomething(false));
     }
 
     @Test
