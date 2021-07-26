@@ -31,6 +31,7 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
+    pmdRunAnalysis: true
 
 - task: SonarQubePublish@4
   inputs:
