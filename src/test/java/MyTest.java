@@ -13,4 +13,10 @@ public class MyTest {
         Demo d = new Demo();
         d.sayHello("Hao");
     }
+
+    @Test
+    public void test_method_3(){
+        Demo d = new Demo();
+        d.sayBye("Hao");
+    }
 }
