@@ -9,4 +9,8 @@ public class Demo {
 
         System.out.println("I am not covered");
     }
+
+    public void sayHello(String name){
+        System.out.println("Hello " + name);
+    }
 }

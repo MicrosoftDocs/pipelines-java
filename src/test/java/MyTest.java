@@ -10,5 +10,7 @@ public class MyTest {
 
     @Test
     public void test_method_2() {
+        Demo d = new Demo();
+        d.sayHello("Hao");
     }
 }
