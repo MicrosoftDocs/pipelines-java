@@ -8,6 +8,7 @@
   <name>Hello world sample web app</name>
   <url>http://maven.apache.org</url>
 
+	
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
