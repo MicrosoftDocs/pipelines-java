@@ -5,7 +5,7 @@
 
 trigger:
 - main
-- test/*
+
 
 strategy:
   matrix:
