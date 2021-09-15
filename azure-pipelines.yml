@@ -4,7 +4,8 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- test
+- main
+- test/*
 
 strategy:
   matrix:
