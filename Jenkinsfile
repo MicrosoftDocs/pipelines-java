@@ -1,6 +1,9 @@
 
 pipeline {
-    agent any
+    
+   agent {
+        label 'maven'
+    }
     
    
     
