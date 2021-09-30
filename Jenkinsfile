@@ -7,13 +7,11 @@ pipeline {
     string(name: 'dockerfile', defaultValue: 'Dockerfile', description: 'dockerfile')
 }
     
-    environment {
-         FILE="$(params.source-dir)"/.hadolint.yaml
-    }
+   
     stages {
         stage('lint-dockerfile') {
             steps {
-                sh 'mvn --version'
+                sh 'hadolint ./dockerfile'
             }
         }
     }
