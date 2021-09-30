@@ -2,7 +2,7 @@
 pipeline {
     
    agent {
-        label 'maven'
+        label 'nodejs'
     }
     
    
@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('lint-dockerfile') {
             steps {
+                sh 'npm install -g dockerlint'
                 sh 'hadolint ./dockerfile'
             }
         }
