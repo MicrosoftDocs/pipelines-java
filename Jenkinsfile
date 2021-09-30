@@ -12,7 +12,7 @@ pipeline {
         stage('lint-dockerfile') {
             steps {
                 sh 'npm install -g dockerlint'
-                sh 'hadolint ./dockerfile'
+                sh 'dockerlint ./dockerfile'
             }
         }
     }
