@@ -1,6 +1,6 @@
 
 pipeline {
-    agent { docker { image 'ghcr.io/hadolint/hadolint:v2.3.0-alpine' } }
+    agent any
     
     parameters {
     string(name: 'lint-dockerfile', defaultValue: 'true', description: 'lint dockerfile')
