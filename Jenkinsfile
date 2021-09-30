@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sh 'ls '
                 sh 'npm install -g dockerlint'
-                sh 'dockerlint dockerfile'
+                sh 'dockerlint Dockerfile'
             }
         }
     }
