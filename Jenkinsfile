@@ -26,7 +26,7 @@ pipeline {
                   }
             steps {
                 sh 'ls '
-                sh 'nvn clean install'
+                sh 'mvn clean install'
                
             }
         }
