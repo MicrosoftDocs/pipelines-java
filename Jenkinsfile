@@ -17,7 +17,7 @@ pipeline {
 //                 sh 'dockerlint Dockerfile'
 //             }
 //         }
-        stage('Build) {
+        stage('Build') {
             
             agent {
         label 'maven'
