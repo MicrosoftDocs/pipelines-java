@@ -6,15 +6,15 @@ pipeline {
     
    
     stages {
-        stage('Build') {
+//         stage('Build') {
              
-              agent {
-        label 'maven'
-                }
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
+//               agent {
+//         label 'maven'
+//                 }
+//             steps {
+//                 sh 'mvn -B -DskipTests clean package'
+//             }
+//         }
 //         stage('lint-dockerfile') {
             
 //             agent {
