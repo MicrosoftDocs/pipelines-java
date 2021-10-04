@@ -10,14 +10,22 @@ trigger:
 
 pool:
   vmImage: "ubuntu-latest"
-  
+
+strategy:
+  matrix:
+    jdk10:
+      jdk_version: "1.10"
+    jdk11:
+      jdk_version: "1.11"
+  maxParallel: 2
+
 steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
+    jdkVersionOption: $(jdk_version)
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
