@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/karasi0946/KarasiPipelineLearning/_apis/build/status/cloudysingh.pipelines-java?branchName=master)](https://dev.azure.com/karasi0946/KarasiPipelineLearning/_build/latest?definitionId=2&branchName=master)
 [![Build Status](https://dev.azure.com/SinghCloudy/Learn%20DevOps/_apis/build/status/cloudysingh.pipelines-java?branchName=master)](https://dev.azure.com/SinghCloudy/Learn%20DevOps/_build/latest?definitionId=1&branchName=master)
 # Contributing
 
