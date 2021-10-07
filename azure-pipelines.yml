@@ -25,3 +25,4 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host "Hello World"
+  displayName: 'Run a PowerShell script'
