@@ -8,7 +8,7 @@ trigger:
 jobs:
 
 - job:
-  condition: false
+  condition: true
   displayName: 'macOS'
   pool:
     vmImage: 'macOS-latest'
