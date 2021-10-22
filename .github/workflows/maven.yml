@@ -2,7 +2,7 @@
 name: Compilación Java
 
 on:
-  # se ejecuta el flujo con cada push y pull request
+  # se ejecuta el flujo con cada push y pull request B
   # o haciendo clic desde las opciones de Github Actions 
   [push, pull_request, workflow_dispatch]
 
