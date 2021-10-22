@@ -2,12 +2,16 @@
 name: Compilación Java
 
 on:
-  # se ejecuta el flujo con cada push y pull request B
-  # o haciendo clic desde las opciones de Github Actions 
+  # se ejecuta el flujo con cada push y pull request
+  # o haciendo clic desde las opciones de Github Actions
   [push, pull_request, workflow_dispatch]
-
+  
 jobs:
   build:
+  
+    strategy:
+      matrix:
+        java: [ 11, 12, 13 ]
 
     # se ejecuta en Ubuntu Linux
     runs-on: ubuntu-latest
@@ -16,13 +20,13 @@ jobs:
     steps:
     - name: Descarga el código fuente
       uses: actions/checkout@v2
-
-    - name: Configura JDK 11
+    
+    - name: Configura JDK
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-package: jdk
-        java-version: '11'
+        java-version: ${{ matrix.java }}
 
     - name: Compila el proyecto y ejecuta las pruebas
       run: mvn -B package --file pom.xml
