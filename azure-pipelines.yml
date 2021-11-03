@@ -18,9 +18,9 @@ trigger:
 
 strategy:
   matrix:
-    jdk10_linux:
+    jdk11_linux:
       imageName: 'ubuntu-latest'
-      jdk_version: '1.10'
+      jdk_version: '1.11'
     jdk11_windows:
       imageName: 'windows-latest'
       jdk_version: '1.11'
