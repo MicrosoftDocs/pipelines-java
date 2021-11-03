@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/v-jbrandrick/v-jbrandrick/_apis/build/status/JulianB-BitQuill.pipelines-java?branchName=master)](https://dev.azure.com/v-jbrandrick/v-jbrandrick/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
