@@ -8,19 +8,16 @@ trigger:
 
 strategy:
   matrix:
-    JDK10_mac:
+    mac:
       imageName: 'macos-latest'
-      jdk_version: '1.10'
-    JDK10_windows:
+      jdk_version: '1.8'
+    windows:
       imageName: 'windows-latest'
-      jdk_version: '1.10'
-    JDK11_mac:
-      imageName: 'macos-latest'
-      jdk_version: '1.11'
-    JDK11_windows:
-      imageName: 'windows-latest'
-      jdk_version: '1.11'
-  maxParallel: 4
+      jdk_version: '1.8'
+    linux:
+      imageName: 'ubuntu-latest'
+      jdk_version: '1.8'
+  maxParallel: 3
 
 pool:
   vmImage: $(imageName)
