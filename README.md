@@ -1,4 +1,4 @@
-
+https://img.shields.io/badge/Azure%20Pipelines-succeeded-green
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
