@@ -1,4 +1,7 @@
- # rake github:check_pr_approval[ghUsername,ghPassword]
+require_relative 'github_helper'
+include GithubHelper
+
+# rake github:check_pr_approval[ghUsername,ghPassword]
   desc "Check PR approval"
   task :check_pr_approval, [:ghUsername, :ghPassword, :pr_number] do |task, args|
     puts "STARTING TASK: #{task}"
