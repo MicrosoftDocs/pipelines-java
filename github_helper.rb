@@ -284,10 +284,5 @@ module GithubHelper
       puts "###### response.body: #{response.body}"
       raise "#{response.code} - #{response.message}"
     end
-  end
-
-  def extract_jira_numbers(description)
-    jira_nbs = description.scan(/JIRA_NUMBERS:\s\[(.*?)\]/).flatten.first
-    (jira_nbs.blank?)? nil : jira_nbs.split(',') 
-  end
+  
   
