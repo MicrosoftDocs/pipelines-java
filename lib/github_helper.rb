@@ -8,7 +8,7 @@ module GithubHelper
 
   GITHUB_API_URL = 'https://api.github.com'
   GITHUB_RAW_URL = 'https://raw.githubusercontent.com'
-  GITHUB_REPO_NAME = 'D4UDigitalPlatform/CustomerFirstSFDC'
+  GITHUB_REPO_NAME = 'therajwala/pipelines-java/'
   GH_EOL='\n'
 
   def add_comments_from_deploy_result(gh_options, deploy_result, ghprbPullId, pre_comment)
