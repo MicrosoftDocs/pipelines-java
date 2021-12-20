@@ -5,8 +5,8 @@
 # added feature branch-test1
 
 trigger:
-- master
-- feature/*
+  - master
+  - feature/*
 
 pool:
   vmImage: ubuntu-latest
