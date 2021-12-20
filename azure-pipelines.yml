@@ -1,7 +1,8 @@
 # Maven
-# Build your Java project and run tests with Apache Maven.
+# Build your Java project and run tests with Apache Maven. 
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
+# added feature branch-test
 
 trigger:
 - master
@@ -31,5 +32,5 @@ steps:
     failIfCoverageEmpty: true
     
 - task: PublishBuildArtifacts@1
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     
