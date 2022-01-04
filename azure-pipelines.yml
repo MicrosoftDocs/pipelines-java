@@ -9,6 +9,14 @@ trigger:
 pool:
   name: Azure Pipelines
   vmImage: ubuntu-latest
+  
+pr:
+  autoCancel: false  # whether PR updates should cancel in-progress validation runs for the same PR (default is TRUE)
+  branches:
+    include:
+    - master
+  drafts: false  # whether draft versions of PRs should fire triggers (default is TRUE)
+
 
 steps:
 - task: Maven@3
