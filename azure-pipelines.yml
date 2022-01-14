@@ -44,7 +44,7 @@ steps:
   inputs:
     command: 'build'
     repository: $(imageName)
-    tags: $(BuildId)
+    tags: $(Build.BuildId)
     Dockerfile: '**/Dockerfile'
     
 
