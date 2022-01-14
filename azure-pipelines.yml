@@ -25,15 +25,16 @@ steps:
     SourceFolder: '/home/vsts/work/1/s/target/'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '/home/vsts/work/1/s/target/'
+    Contents: '**'
+    TargetFolder: '$(Build.SourcesDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 #- checkout: self
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Build.ArtifactStagingDirectory)'
-    Contents: '*target'
-    TargetFolder: '$(Build.SourcesDirectory)'
+
 
