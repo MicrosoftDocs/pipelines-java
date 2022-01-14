@@ -36,5 +36,10 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 #- checkout: self
+- task: Docker@2
+  inputs:
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+    
 
 
