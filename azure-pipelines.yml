@@ -11,7 +11,7 @@ pool:
 
 variables:
   imageName: test-java-app
-  tag: 1.0
+  
 
 steps:
 - task: Maven@3
@@ -43,7 +43,8 @@ steps:
 - task: Docker@2
   inputs:
     command: 'build'
-    repository: $(imageName):$(tag)
+    repository: $(imageName)
+    tags: $(BuildId)
     Dockerfile: '**/Dockerfile'
     
 
