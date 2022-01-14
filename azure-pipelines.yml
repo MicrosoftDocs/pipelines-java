@@ -11,7 +11,7 @@ pool:
 
 variables:
   imageName: test-java-app
-  tag: $(Build.BuildId)
+  tag: 1.0
 
 steps:
 - task: Maven@3
