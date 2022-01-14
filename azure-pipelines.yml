@@ -31,4 +31,9 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 #- checkout: self
-   
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: '*target'
+    TargetFolder: '$(Build.SourcesDirectory)'
+
