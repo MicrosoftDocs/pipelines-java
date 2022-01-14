@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  imageName: test-java-app
+  tag: $(Build.BuildId)
+
 steps:
 - task: Maven@3
   inputs:
@@ -39,6 +43,7 @@ steps:
 - task: Docker@2
   inputs:
     command: 'build'
+    repository: $(imageName):$(tag)
     Dockerfile: '**/Dockerfile'
     
 
