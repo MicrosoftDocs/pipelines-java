@@ -49,7 +49,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
-    repository: $(imageName)
+    repository: nmadesh20/$(imageName)
     command: 'push'
 
 
