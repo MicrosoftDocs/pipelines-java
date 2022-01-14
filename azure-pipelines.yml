@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  imageName: test-java-app
+  imageName: nmadesh20/test-java-app
   
 
 steps:
@@ -49,7 +49,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
-    repository: nmadesh20/$(imageName)
+    repository: $(imageName)
     command: 'push'
 
 
