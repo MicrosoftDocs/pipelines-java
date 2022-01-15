@@ -21,7 +21,7 @@ stages:
       steps:
       - script: echo running UnitTest
 
-- ${{ if eq(parameters.runPerfTests, true)}}
+- ${{ if eq(parameters.runPerfTests, true) }}:
   - stage: PerfTest
     displayName: Performance Test
     dependsOn: Build
