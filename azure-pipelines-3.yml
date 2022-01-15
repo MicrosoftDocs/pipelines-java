@@ -1,0 +1,29 @@
+parameters:
+  - name: myStringName
+    type: string
+    default: a string value
+  - name: myMultiString
+    type: string
+    default: default
+    values:
+    - default
+    - ubuntu
+  - name: myNumber
+    type: number
+    default: 2
+    values:
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+  - name: myBoolean
+    type: boolean
+    default: true
+    
+trigger: none
+
+steps:
+  - ${{ each parameter in parameters }}:
+    - script: echo ${{ parameter.Key }}
+    - script: echo ${{ parameter.Value }}
