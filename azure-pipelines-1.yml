@@ -13,7 +13,7 @@ trigger: none
 jobs:
 - job: build
   displayName: build
-  pool: 
-    vmImage: ${{ parameters.image }}
+  #pool: 
+   # vmImage: ${{ parameters.image }}
   steps:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
