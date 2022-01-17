@@ -16,4 +16,4 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
     # test pipeline settings #3
-    # disabled 1
+    # disabled 2
