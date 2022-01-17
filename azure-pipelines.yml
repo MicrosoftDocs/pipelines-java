@@ -15,4 +15,5 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-    # test pipeline settings #1
+    # test pipeline settings #2
+    # pause
