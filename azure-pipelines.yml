@@ -2,7 +2,7 @@ trigger:
   - master
 
 pool:
-    vmImage: 'macOS-latest'
+    vmImage: 'linux-latest'
 
 steps:
 - task: Maven@3
@@ -15,5 +15,5 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-    # test pipeline settings #2
-    # pause 2
+    # test pipeline settings #3
+    # disabled 1
