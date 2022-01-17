@@ -20,7 +20,7 @@ jobs:
   
     # This malformed command causes the job to fail
     # Only run this command if the succeed variable is set to false
-    - script: git clone malformed input
+    - script: git clone  pipelines-java input
       condition: eq(${{ parameters.succeed }}, false)
   
   # This job creates a work item, and only runs if the previous job failed
