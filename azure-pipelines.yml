@@ -4,7 +4,7 @@ parameters:
   - name: succeed
     displayName: Succeed or Fail
     type: boolean
-    default: false
+    default: true
   
 trigger:
 - error
@@ -26,12 +26,12 @@ jobs:
   # This job creates a work item, and only runs if the previous job failed
   - job: ErrorHandler
     dependsOn: Work
-    condition: failed()
+    condition: true()
     steps: 
     - bash: |
         az boards work-item create \
           --title "Build $(build.buildNumber) failed" \
-          --type issue \
+          --type task \
           --assigned-to svasylenko7 \
           --org $(System.TeamFoundationCollectionUri) \
           --project $(System.TeamProject)
