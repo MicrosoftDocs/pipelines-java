@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: "ubuntu-latest"
 
-  strategy:
+strategy:
   matrix:
     jdk10:
       jdkVersion: "1.10"
