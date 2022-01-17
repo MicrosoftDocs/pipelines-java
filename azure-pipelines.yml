@@ -34,7 +34,7 @@ jobs:
           --type issue \
           --assigned-to svasylenko7
           --org $(System.TeamFoundationCollectionUri) \
-          --project java
+          --project $(System.TeamProject)
       env: 
         AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
       displayName: 'Create work item on failure'
