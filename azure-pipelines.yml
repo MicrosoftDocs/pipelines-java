@@ -6,13 +6,13 @@ parameters:
     type: boolean
     default: false
   
-  trigger:
+trigger:
   - main
   
-  pool:
+pool:
     vmImage: ubuntu-latest
   
-  jobs:
+jobs:
   - job: Work
     steps:
     - script: echo Hello, world!
