@@ -2,9 +2,9 @@
 # succeeds or fails.
 parameters:
   - name: succeed
-    displayName: Succeed or fail
+    displayName: Succeed or Fail
     type: boolean
-    default: false
+    default: true
   
 trigger:
 - error
