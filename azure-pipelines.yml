@@ -32,6 +32,7 @@ jobs:
         az boards work-item create \
           --title "Build $(build.buildNumber) failed" \
           --type issue \
+          --assigned-to svasylenko7
           --org $(System.TeamFoundationCollectionUri) \
           --project java
       env: 
