@@ -15,7 +15,7 @@ pool:
 jobs:
   - job: Work
     steps:
-    - script: echo Hello, world!
+    - script: sudo echo Hello, world!
       displayName: 'Run a one-line script'
   
     # This malformed command causes the job to fail
