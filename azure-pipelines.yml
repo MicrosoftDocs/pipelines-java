@@ -4,7 +4,7 @@ parameters:
   - name: succeed
     displayName: Succeed or Fail
     type: boolean
-    default: true
+    default: false
   
 trigger:
 - error
