@@ -2,7 +2,7 @@ trigger:
   - master
 
 pool:
-    vmImage: 'linux-latest'
+    vmImage: 'linux-18.04'
 
 steps:
 - task: Maven@3
@@ -16,4 +16,4 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
     # test pipeline settings #3
-    # disabled 2
+    # enabled
