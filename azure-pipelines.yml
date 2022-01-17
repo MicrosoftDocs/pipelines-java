@@ -2,7 +2,7 @@ trigger:
   - master
 
 pool:
-    vmImage: 'linux-18.04'
+    vmImage: 'macOS-latest'
 
 steps:
 - task: Maven@3
