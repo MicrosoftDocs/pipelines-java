@@ -1,3 +1,4 @@
+https://dev.azure.com/svasylenko7/java/_apis/build/status/svasylenko7.pipelines-java?branchName=master
 
 # Contributing
 
