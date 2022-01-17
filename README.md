@@ -1,4 +1,4 @@
-https://dev.azure.com/svasylenko7/java/_apis/build/status/svasylenko7.pipelines-java?branchName=master
+[![Build Status](https://dev.azure.com/svasylenko7/java/_apis/build/status/svasylenko7.pipelines-java?branchName=master)](https://dev.azure.com/svasylenko7/java/_build/latest?definitionId=97&branchName=master)
 
 # Contributing
 
