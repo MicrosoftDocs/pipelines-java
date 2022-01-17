@@ -30,8 +30,8 @@ jobs:
     steps: 
     - bash: |
         az boards work-item create \
-          --title "Build 1 failed" \
-          --type task \
+          --title "Build $(build.buildNumber) failed" \
+          --type issue \
           --org $(System.TeamFoundationCollectionUri) \
           --project java
       env: 
