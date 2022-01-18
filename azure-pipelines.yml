@@ -19,7 +19,7 @@ stages:
 
 - stage: PR_Build
   displayName: Pull Request Build 
-  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull'))
+  #condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull'))
   jobs:
     - job: Build
       displayName: PR-Build stage
