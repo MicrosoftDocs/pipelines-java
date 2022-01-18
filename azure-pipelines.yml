@@ -37,6 +37,7 @@ stages:
       
 - stage: Build 
   displayName: Build stage 
+  condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull')))
   jobs:
   - job: Build 
     displayName: Build 
