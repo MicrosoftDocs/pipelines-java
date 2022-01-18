@@ -33,14 +33,7 @@ stages:
         testResultsFiles: '**/surefire-reports/TEST-X.xml'
         goals: 'package'
 
-    - task: Docker@2
-      displayName: Build and Push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageName)
-        dockerfile: '**/Dockerfile'
-        containerRegistry: 'DockerHubConnection'
-        tags: $(tag)
+
         
 
     - task: UniversalPackages@0
