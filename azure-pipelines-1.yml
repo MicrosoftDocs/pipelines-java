@@ -22,7 +22,7 @@ jobs:
   pool: 
     vmImage: ${{ parameters.image }}
   steps:
-  - script: echo building $[variables.imageNa]
+  - script: echo building $(imageNa)
   - ${{ if eq(parameters.test, true)}}:
     - script: echo "Running all the tests"
     
