@@ -25,4 +25,4 @@ jobs:
   - script: echo building $(imageNa)
   - ${{ if eq(parameters.test, true)}}:
     - script: echo "Running all the tests"
-    
+    - script: cd $(Build.ArtifactStagingDirectory); ls -lrt
