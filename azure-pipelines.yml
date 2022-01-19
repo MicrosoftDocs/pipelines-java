@@ -17,27 +17,9 @@ pool:
 
 stages:
 
-- stage: PR_Build
-  displayName: Pull Request Build 
-  #condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull'))
-  jobs:
-    - job: Build
-      displayName: PR-Build stage
-      steps:
-      - task: Maven@3
-        inputs:
-          mavenPomFile: 'pom.xml'
-          mavenOptions: '-Xmx3072m'
-          javaHomeOption: 'JDKVersion'
-          jdkVersionOption: '1.8'
-          jdkArchitectureOption: 'x64'
-          publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/TEST-X.xml'
-          goals: 'package'
-      
+
 - stage: Build 
   displayName: Build stage 
-  condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull')))
   jobs:
   - job: Build 
     displayName: Build 
