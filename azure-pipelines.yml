@@ -7,6 +7,7 @@ resources:
 parameters:
   - name: ValueA
     displayName: Value A
+    default: C
     values: 
       - A
       - B
