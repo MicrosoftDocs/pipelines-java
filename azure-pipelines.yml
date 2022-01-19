@@ -4,6 +4,20 @@ trigger:
 resources:
 - repo: self 
 
+parameters:
+  - name: ValueA
+    displayName: Value A
+    default: A
+    type: string
+  - name: ValueB
+    displayName: Value B
+    default: B
+    type: string
+  - name: Myname
+    displayName: My Name
+    default: Madesh
+    type: string
+
 variables:
   env: qa
   imageName: test-java-app
