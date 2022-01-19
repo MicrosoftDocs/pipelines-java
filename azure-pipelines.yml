@@ -7,7 +7,10 @@ resources:
 parameters:
   - name: ValueA
     displayName: Value A
-    default: A
+    default: |
+      - A
+      - B
+      - C
     type: string
   - name: ValueB
     displayName: Value B
