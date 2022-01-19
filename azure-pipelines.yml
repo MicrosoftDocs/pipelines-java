@@ -1,11 +1,5 @@
 # When manually running the pipeline, you can select whether it
 # succeeds or fails.
-parameters:
-  - name: succeed
-    displayName: Succeed or Fail
-    type: boolean
-    default: true
-  
 trigger:
 - error
   
