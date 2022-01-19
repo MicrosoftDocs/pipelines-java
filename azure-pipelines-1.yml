@@ -14,7 +14,7 @@ parameters:
   type: boolean
   default: false
 
-#trigger: none
+trigger: none
  
 jobs: 
 - job: build
