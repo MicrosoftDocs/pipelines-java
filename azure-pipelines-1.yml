@@ -1,5 +1,5 @@
 variables:
-- group: "testvars"
+- group: "test-vars"
 - name: imageNa
   value: $[variables.imageName]
 parameters:
