@@ -27,3 +27,6 @@ jobs:
   - script: echo "Running all the tests"
   - script: cd $(Build.ArtifactStagingDirectory)
   - script: ls -lrt
+  - script: echo "files under source"
+  - script: cd $(Build.SourcesDirectory)
+  - script: ls -lrt
