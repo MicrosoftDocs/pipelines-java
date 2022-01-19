@@ -14,7 +14,7 @@ parameters:
   type: boolean
   default: false
 
-trigger: none
+#trigger: none
  
 jobs: 
 - job: build
@@ -23,6 +23,6 @@ jobs:
     vmImage: ${{ parameters.image }}
   steps:
   - script: echo building $(imageNa)
-  - ${{ if eq(parameters.test, true)}}:
-    - script: echo "Running all the tests"
-    - script: cd $(Build.ArtifactStagingDirectory); ls -lrt
+  #- ${{ if eq(parameters.test, true)}}:
+  - script: echo "Running all the tests"
+  - script: cd $(Build.ArtifactStagingDirectory); ls -lrt
