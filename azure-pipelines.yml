@@ -58,5 +58,5 @@ stages:
         vstsFeedPublish: '874685fc-027a-4439-aaa9-171e5ead0f59/7e134717-36d8-45f9-a518-d69ba6f2673a'
         vstsFeedPackagePublish: 'javapp'
         versionOption: 'custom'
-        versionPublish: '1.0.0'
+        versionPublish: '1.1.0'
     
