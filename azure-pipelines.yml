@@ -13,7 +13,7 @@ variables:
   k8sNamespaceForPR: 'review-app-$(System.PullRequest.PullRequestId)'
 
 pool:
-  vmImage: $(imageName)
+  vmImage: $(vmImageName)
 
 stages:
 
