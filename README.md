@@ -1,4 +1,6 @@
 
+[![Build Status](https://keremidarska-o365.visualstudio.com/First_GH/_apis/build/status/vkpipelines.pipelines-java?branchName=master)](https://keremidarska-o365.visualstudio.com/First_GH/_build/latest?definitionId=1&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
