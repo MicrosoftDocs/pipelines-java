@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: sh-dev-agents
+pool: sh-dev-agent
 
 steps:
 - task: Maven@3
