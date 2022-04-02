@@ -34,7 +34,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: build java application 
-        run: mvn test
+        run: mvn package -Dskipteat
     
 
 
