@@ -1,40 +1,61 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+parameters:
+- name: image
+  displayName: 'Pool image'
+  default: ubuntu-latest
+  values:
+  - windows-latest
+  - windows-latest
+  - ubuntu-latest
+  - ubuntu-latest
+  - macOS-latest
+  - macOS-latest
+- name: test
+  displayName: Run Tests?
+  type: boolean
+  default: false
+
+variables:
+- group: "Contoso Variable Group"
+- name: va
+  value: $[variables.a]
+- name: vb
+  value: $[variables.b]
+- name: vcontososecret
+  value: $[variables.contososecret]
 
 trigger:
-  - main
-  - releases/*
-
-
-strategy:
-  matrix:
-    jdk10_linux:
-      imageName: "ubuntu-latest"
-      jdkVersion: "1.10"
-    jdk11_windows:
-      imageName: "windows-latest"
-      jdkVersion: "1.11"
-  maxParallel: 2
+- master
 
 pool:
-  vmImage: $(imageName)
+  vmImage: ubuntu-latest
 
 steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: $(jdkVersion)
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: "JaCoCo"
-    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-    failIfCoverageEmpty: true
+- script: |
+    echo "Hello, world!"
+    echo "Pool image: ${{ parameters.image }}"
+    echo "Run tests? ${{ parameters.test }}"
+  displayName: 'Show runtime parameter values'
+
+- script: |
+    echo "a=$(va)"
+    echo "b=$(vb)"
+    echo "contososecret=$(vcontososecret)"
+    echo
+    echo "Count up to the value of the variable group's nonsecret variable *a*:"
+    for number in {1..$(va)}
+    do
+        echo "$number"
+    done
+    echo "Count up to the value of the variable group's nonsecret variable *b*:"
+    for number in {1..$(vb)}
+    do
+        echo "$number"
+    done
+    echo "Count up to the value of the variable group's secret variable *contososecret*:"
+    for number in {1..$(vcontososecret)}
+    do
+        echo "$number"
+    done
+  displayName: 'Test variable group variables (secret and nonsecret)'
+  env:
+    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
