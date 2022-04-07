@@ -1,4 +1,9 @@
 parameters:
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'publish pipeline artifacts'
+    publishLocation: 'pipeline'
 - name: image
   displayName: 'Pool image'
   default: ubuntu-latest
