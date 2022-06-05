@@ -21,5 +21,10 @@ pool:
 #    testResultsFiles: '**/surefire-reports/TEST-*.xml'
 #    goals: 'package'
 
-steps:
-- task: dir
+jobs:
+  - job: PushEcho
+    displayName: Echo when push happens
+    steps:
+      - task: CmdLine@2
+        inputs:
+          script: echo Push Complete.
