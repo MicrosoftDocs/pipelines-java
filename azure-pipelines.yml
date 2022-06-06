@@ -25,8 +25,8 @@ pool:
 
 jobs:
   - job: PushEcho
-    displayName: Test Branch echo when push happens
+    displayName: Trigger None Test Branch echo when push happens
     steps:
       - task: CmdLine@2
         inputs:
-          script: echo TEST BRANCH Complete.
+          script: echo TRIGGER NONE TEST BRANCH Complete.
