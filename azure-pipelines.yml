@@ -23,7 +23,7 @@ pool:
 
 jobs:
   - job: PushEcho
-    displayName: Echo when push happens
+    displayName: Test Branch echo when push happens
     steps:
       - task: CmdLine@2
         inputs:
