@@ -24,9 +24,10 @@ pool:
 #    goals: 'package'
 
 jobs:
-  - job: PushEcho
-    displayName: Trigger None Test Branch echo when push happens
+  - job: GetRequestID
+    displayName: Get Pull Request ID
     steps:
-      - task: CmdLine@2
+      - task: PowerShell@2
         inputs:
-          script: echo TRIGGER NONE TEST BRANCH Complete.
+          targetType: inline
+          script: Write-Host "PR ID is:" $(System.PullRequest.PullRequestId)
