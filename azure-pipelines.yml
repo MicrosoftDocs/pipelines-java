@@ -13,4 +13,7 @@ jobs:
       - task: PowerShell@2
         inputs:
           targetType: inline
-          script: Write-Host "PR ID is:" $(System.PullRequest.PullRequestNumber)
+          script: |
+            $upload = curl https://api.github.com/repos/akshayaravindan/REPO/pulls/PULL_NUMBER/files
+            echo ($upload | ConvertFrom-Json).filename
+
