@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/KannadasanProject/Azure-terraform-kubernetes-pipeline/_apis/build/status/Kannadasa.pipelines-java?branchName=Java-pipeline-setup)](https://dev.azure.com/KannadasanProject/Azure-terraform-kubernetes-pipeline/_build/latest?definitionId=4&branchName=Java-pipeline-setup)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
