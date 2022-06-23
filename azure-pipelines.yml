@@ -54,6 +54,7 @@ stages:
     - task: SonarQubePublish@5
       inputs:
        pollingTimeoutSec: '300'
+    
     - task: Maven@3
       displayName: 'Maven Package'
       inputs:
