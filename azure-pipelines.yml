@@ -41,20 +41,7 @@ stages:
     
 
     steps:
-    - task: SonarQubePrepare@5
-      inputs:
-        SonarQube: 'sonar'
-        scannerMode: 'Other'
-        extraProperties: |
-          # Additional properties that will be passed to the scanner,
-          # Put one key=value per line, example:
-          sonar.exclusions=**/*.bin
-          sonar.projectKey=TEST_DC_TEST_DC_AYGRLp5PgC_UkggmKnWi
-    # Publish Quality Gate Result task
-    - task: SonarQubePublish@5
-      inputs:
-       pollingTimeoutSec: '300'
-    
+   
     - task: Maven@3
       displayName: 'Maven Package'
       inputs:
@@ -73,3 +60,17 @@ stages:
       inputs:
        targetPath: '$(Pipeline.Workspace)'
        publishLocation: 'pipeline'
+    - task: SonarQubePrepare@5
+      inputs:
+        SonarQube: 'sonar'
+        scannerMode: 'Other'
+        extraProperties: |
+          # Additional properties that will be passed to the scanner,
+          # Put one key=value per line, example:
+          sonar.exclusions=**/*.bin
+          sonar.projectKey=TEST_DC_TEST_DC_AYGRLp5PgC_UkggmKnWi
+    # Publish Quality Gate Result task
+    - task: SonarQubePublish@5
+      inputs:
+       pollingTimeoutSec: '300'
+    
