@@ -14,18 +14,6 @@ pool:
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-steps:
-# Prepare Analysis Configuration task
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: 'http://52.90.95.5:9000/'
-    scannerMode: 'Other'
-    extraProperties: 'sonar.projectKey=java-project'
-
-# Publish Quality Gate Result task
-- task: SonarQubePublish@5
-  inputs:
-    pollingTimeoutSec: '300'
 
 variables:
 
@@ -50,8 +38,18 @@ stages:
     pool:
       name: Default
       vmImage: $(vmImageName)
+    
 
     steps:
+    - task: SonarQubePrepare@5
+      inputs:
+        SonarQube: 'sonar'
+        scannerMode: 'Other'
+        extraProperties: 'sonar.projectKey=java-project'
+    # Publish Quality Gate Result task
+    - task: SonarQubePublish@5
+      inputs:
+       pollingTimeoutSec: '300'
     - task: Maven@3
       displayName: 'Maven Package'
       inputs:
