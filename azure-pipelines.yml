@@ -6,6 +6,16 @@
 trigger:
 - main
 
+strategy:
+  matrix:
+  linux:
+   imagename: "ubuntu-latest"
+   windows:
+   imagename: "windows-latest"
+   mac:
+   imagename: "mac-latest"
+
+
 pool:
   vmImage: windows-latest
 
