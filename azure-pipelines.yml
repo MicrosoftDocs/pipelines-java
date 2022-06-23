@@ -14,6 +14,7 @@ strategy:
    imagename: "windows-latest"
    mac:
    imagename: "mac-latest"
+   
 
 
 pool:
