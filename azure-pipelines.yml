@@ -51,9 +51,17 @@ stages:
           sonar.exclusions=**/*.bin
           sonar.projectKey=TEST_DC_TEST_DC_AYGRLp5PgC_UkggmKnWi
     - task: Maven@3
-      displayName: 'Maven Package'
       inputs:
         mavenPomFile: 'pom.xml'
+        goals: 'clean packages'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: true
+        sqMavenPluginVersionChoice: 'latest'
 
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
@@ -68,7 +76,7 @@ stages:
       inputs:
        targetPath: '$(Pipeline.Workspace)'
        publishLocation: 'pipeline'
-    - task: SonarQubeAnalyze@5
+
     
     # Publish Quality Gate Result task
     - task: SonarQubePublish@5
