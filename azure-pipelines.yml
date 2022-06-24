@@ -16,6 +16,7 @@ strategy:
     imageName: "macOS-latest"
 
   maxParallel: 3
+  #updates
 
 
 
