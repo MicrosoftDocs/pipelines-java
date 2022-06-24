@@ -14,7 +14,9 @@ strategy:
     imageName: "windows-latest"
    mac:
     imageName: "macOS-latest"
-  maxparallel: 3
+
+  #maxparallel: 3
+
 
 pool:
   vmImage: $(imageName)
