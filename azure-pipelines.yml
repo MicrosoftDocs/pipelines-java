@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu:latest'
+  vmImage: ubuntu-latest
 # Maven package Java project Web App to Linux on Azure
 # Build your Java project and deploy it to Azure as a Linux web app
 # Add steps that analyze code, save build artifacts, deploy, and more:
@@ -26,7 +26,7 @@ variables:
   environmentName: 'stage'
 
   # Agent VM image name
-  vmImageName: $(vmImageName)
+  vmImageName: $(vmImage)
 
 stages:
  
@@ -36,7 +36,7 @@ stages:
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
     pool:
-      vmImage: $(vmImageName)
+      vmImage: ubuntu-latest
     
 
     steps:
