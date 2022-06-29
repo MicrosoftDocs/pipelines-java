@@ -30,17 +30,18 @@ variables:
   vmImageName: 'ubuntu:latest'
 
 stages:
+ 
 - stage: Build
   displayName: Build stage
   jobs:
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
     pool:
-      name: Default
       vmImage: $(vmImageName)
     
 
     steps:
+     
     - task: SonarQubePrepare@5
       inputs:
         SonarQube: 'sonar'
@@ -50,6 +51,10 @@ stages:
           # Put one key=value per line, example:
           sonar.exclusions=**/*.bin
           sonar.projectKey=TEST_DC
+    - task: MavenAuthenticate@0
+      displayName: 'Maven Authenticate'
+      inputs:
+       artifactsFeeds: java-feed
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'
