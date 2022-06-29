@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <repositories>
   <repository>
   <id>java-feed</id>
   <url>https://pkgs.dev.azure.com/nitcheueric/TEST_DC/_packaging/java-feed/maven/v1</url>
@@ -10,7 +11,17 @@
   <snapshots>
     <enabled>true</enabled>
   </snapshots>
-</repository>
+  </repository>
+     <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
   <groupId>helloworld</groupId>
   <artifactId>helloworld</artifactId>
   <packaging>war</packaging>
@@ -57,5 +68,25 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-  
+  <distributionManagement>
+     <repository>
+  <id>java-feed</id>
+  <url>https://pkgs.dev.azure.com/nitcheueric/TEST_DC/_packaging/java-feed/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+  </repository>
+     <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </distributionManagement>
 </project>
