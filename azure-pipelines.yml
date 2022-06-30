@@ -94,9 +94,6 @@ stages:
        targetPath: '$(Pipeline.Workspace)'
        publishLocation: 'pipeline'
   
-    - task: NuGetAuthenticate@1
-      inputs:
-        nuGetServiceConnections: 'nuget'
     - task: NuGetCommand@2
       inputs:
         command: 'restore'
