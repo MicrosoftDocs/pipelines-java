@@ -66,20 +66,20 @@ stages:
         effectivePomSkip: false
         sonarQubeRunAnalysis: true
         sqMavenPluginVersionChoice: 'latest'
-    - task: Cache@2
-      inputs:
-        key: 'dependency-check | "$(Agent.OS)" | **/pom.xml'
-        restoreKeys: |
-         dependency-check | "$(Agent.OS)"
-         dependency-check
-        path: '$(Pipeline.Workspace)/dependency-check-data'
-    - task: OWASPDependencyCheck@0
-      inputs:
-        outputDirectory: '$(Agent.TempDirectory)/dependency-scan-results'
-        scanDirectory: '$(Build.SourcesDirectory)'
-        outputFormat: 'ALL'
-        useSonarQubeIntegration: true
-        additionalArguments: '--log odc.log --data $(Pipeline.Workspace)/dependency-check-data'
+    # - task: Cache@2
+    #   inputs:
+    #     key: 'dependency-check | "$(Agent.OS)" | **/pom.xml'
+    #     restoreKeys: |
+    #      dependency-check | "$(Agent.OS)"
+    #      dependency-check
+    #     path: '$(Pipeline.Workspace)/dependency-check-data'
+    # - task: OWASPDependencyCheck@0
+    #   inputs:
+    #     outputDirectory: '$(Agent.TempDirectory)/dependency-scan-results'
+    #     scanDirectory: '$(Build.SourcesDirectory)'
+    #     outputFormat: 'ALL'
+    #     useSonarQubeIntegration: true
+    #     additionalArguments: '--log odc.log --data $(Pipeline.Workspace)/dependency-check-data'
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
