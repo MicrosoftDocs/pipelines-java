@@ -29,3 +29,8 @@ hs_err_pid*
 
 *.iml
 target/
+/bin/
+/Libs/
+/.settings/
+/.classpath
+.svn/
