@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/AndrewCasswell/Benula/_apis/build/status/andrewCasswell.pipelines-java?branchName=main)](https://dev.azure.com/AndrewCasswell/Benula/_build/latest?definitionId=13&branchName=main)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
