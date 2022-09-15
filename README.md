@@ -1,3 +1,4 @@
+[![Build Status](https://simonpocklingtonuk.visualstudio.com/Pipelines-java/_apis/build/status/simonpocklingtonuk.pipelines-java?branchName=main)](https://simonpocklingtonuk.visualstudio.com/Pipelines-java/_build/latest?definitionId=6&branchName=main)
 
 # Contributing
 
