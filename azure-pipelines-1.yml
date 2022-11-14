@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  default
+  Hosted Agent
 
 steps:
 - task: Maven@3
