@@ -2,20 +2,16 @@
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
+parameters:
+  - pa1: parame-1
+    pa2: parame-2
+    jdkVersion: "1.8"
 
-pr:
+trigger:
 - main
-- releases/*
-
-strategy:
-  matrix:
-    jdk10_linux:
-      imageName: "windows-latest"
-      jdkVersion: "1.10"
-  maxParallel: 2
 
 pool:
-  vmImage: $(imageName)
+  name: my-win-pool
 
 steps:
 - task: Maven@3
