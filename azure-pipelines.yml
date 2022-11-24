@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: my-win-pool
+  vmImage: "macos-latest"
 
 steps:
 - task: Maven@3
