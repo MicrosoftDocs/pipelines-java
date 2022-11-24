@@ -10,7 +10,7 @@ pr:
 strategy:
   matrix:
     jdk10_linux:
-      imageName: "ubuntu-latest"
+      imageName: "windows-latest"
       jdkVersion: "1.10"
   maxParallel: 2
 
