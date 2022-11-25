@@ -5,7 +5,7 @@
 parameters:
   - pa1: parame-1
     pa2: parame-2
-    jdkVersion: "1.8.0"
+    jdkVersion: "1.8"
 
 trigger:
 - main
@@ -18,7 +18,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
-    javaHomeOption: "JDKVersion"
+    javaHomeOption: 'JDKVersion'
     jdkVersionOption: $(jdkVersion)
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
