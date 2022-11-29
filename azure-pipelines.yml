@@ -1,33 +1,25 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+# File: simple-param.yml
 parameters:
-  - pa1: parame-1
-    pa2: parame-2
-    jdkVersion: "1.8"
-
-trigger:
-- main
-
-pool:
-  name: my-win-pool
-
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: $(jdkVersion)
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: "JaCoCo"
-    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-    failIfCoverageEmpty: true
+- name: buildSteps # the name of the parameter is buildSteps
+  type: stepList # data type is StepList
+  default: [] # default value of buildSteps
+stages:
+- stage: secure_buildstage
+  pool:
+    vmImage: windows-latest
+  jobs:
+  - job: secure_buildjob
+    steps:
+    - script: echo This happens before code 
+      displayName: 'Base: Pre-build'
+    - script: echo Building
+      displayName: 'Base: Build'
+    - ${{ each step in parameters.buildSteps }}:
+      - ${{ each pair in step }}:
+          ${{ if ne(pair.value, 'CmdLine@2') }}:
+            ${{ pair.key }}: ${{ pair.value }}       
+          ${{ if eq(pair.value, 'CmdLine@2') }}: 
+            # Step is rejected by raising a YAML syntax error: Unexpected value 'CmdLine@2'
+            '${{ pair.value }}': error
+    - script: echo This happens after code Li
+      displayName: 'Base: Signing'
