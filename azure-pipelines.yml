@@ -2,7 +2,12 @@
 parameters:
 - name: buildSteps # the name of the parameter is buildSteps
   type: stepList # data type is StepList
-  default: [] # default value of buildSteps
+   #default: [] # default value of buildSteps
+  default:
+     - task: CmdLine@2
+       inputs: echo "aaaa"
+     - script: echo fsafsfd
+    
 stages:
 - stage: secure_buildstage
   pool:
