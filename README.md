@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/lizaoa0523/SpaceGame-Pipeline/_apis/build/status/lizaoa.pipelines-java?branchName=main)](https://dev.azure.com/lizaoa0523/SpaceGame-Pipeline/_build/latest?definitionId=7&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
