@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/BhavaniVemuri/Pipeliness-Java/_apis/build/status/bhavanikp84.pipelines-java?branchName=main)](https://dev.azure.com/BhavaniVemuri/Pipeliness-Java/_build/latest?definitionId=52&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
