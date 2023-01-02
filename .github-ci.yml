@@ -1,0 +1,47 @@
+# Github pipeline to deploy Azure enterperise scale landing zone 
+#Dynamic child pipelines are created and triggled for Azure Commercial and Government 
+
+stages: 
+  - build 
+  - trigger 
+
+default:
+  image: alpine:3.16
+  tags:
+    - docker 
+
+generate-child-pipelines:
+  stage: build
+  environment:
+    name: $CLOUD
+  # before_script:
+  #wget -q -O - --no-check-certificate https://gitlab.laeintel-scripts/laeintel-pki/raw/master/os_scripts/install_certs.sh | MODE=alpine sh 
+  script:
+    -./generate-child.sh $CLOUD
+  artifacts:
+    paths: 
+      -${CLOUD}-child-pipeline.yml
+      parallel:
+        matrix:
+          -CLOUD: (LAC, LAG)
+
+
+# separate jobs to trigger child jobs 
+
+lag-child-pipeline:
+  stage: trigger
+  needs:
+    - "generate-child-pipeline: [LAG]"
+  trigger:
+    include: 
+      - artifact: LAG-child-pipeline.yml
+        job: "generate-child-pipelines: [LAG}"
+
+lac-child-pipeline:
+  stage: trigger
+  needs:
+    - "generate-child-pipeline: [LAC]"
+  trigger:
+    include: 
+      - artifact: LAC-child-pipeline.yml
+        job: "generate-child-pipelines: [LAC}"

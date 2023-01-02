@@ -29,3 +29,10 @@ hs_err_pid*
 
 *.iml
 target/
+
+# Mac files
+.DS_Store
+
+.vscode
+
+#Ignore CLI configuration files 
