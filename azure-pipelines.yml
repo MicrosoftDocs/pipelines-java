@@ -4,16 +4,16 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- master
-strategy:
-  matrix:
-    jdk10_linux:
-      imageName: "ubuntu-latest"
-      jdkVersion: "1.10"
-    jdk11_windows:
-      imageName: "windows-latest"
-      jdkVersion: "1.11"
-  maxParallel: 2
+- feature/*
+# strategy:
+#   matrix:
+#     jdk10_linux:
+#       imageName: "ubuntu-latest"
+#       jdkVersion: "1.10"
+#     jdk11_windows:
+#       imageName: "windows-latest"
+#       jdkVersion: "1.11"
+#   maxParallel: 2
 
 
 pool:
