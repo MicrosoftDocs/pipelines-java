@@ -1,62 +1,40 @@
-# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
-# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+name: Deploy Java Web App to Azure
 
-name: Maven Package
+on:
+  [push,pull_request]
 
-on: [push]
+# CONFIGURATION
+# For help, go to https://github.com/Azure/Actions
+#
+# 1. Set up the following secrets in your repository:
+#   AZURE_WEBAPP_PUBLISH_PROFILE
+#
+# 2. Change these variables for your configuration:
+env:
+  AZURE_WEBAPP_NAME: azjavaapp  # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }} # set this to the path to your web app project
+  JAVA_VERSION: '1.8'                # set this to the Java version to use
+  AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_556C19A6DB5046FC8539A2A252542DDD }}     # set GH repo secret with the publish profile of the web app
 
 jobs:
-  build:
-
+  build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
+    environment: dev
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
+    - uses: actions/checkout@master
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
       with:
-        java-version: '11'
-        distribution: 'temurin'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
-
+        java-version: ${{ env.JAVA_VERSION }}
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
-    - name: Upload a Build Artifact   
-      uses: actions/upload-artifact@v3.1.2
-      with:
-        # Artifact name
-        name: java-app
-        path: ${{ github.workspace }}
+      run: mvn package --file pom.xml
+    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ env.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/target/*.jar'
         
-  deploy:
-    permissions:
-      contents: none
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Development'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-      
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: java-app
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'azjavaapp'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_556C19A6DB5046FC8539A2A252542DDD }}
-          package: '${{ github.workspace }}/target/*.jar'
-    
-
-      
-     
+  # For more information on GitHub Actions for Azure, refer to https://github.com/Azure/Actions
+  # For more samples to get started with GitHub Action workflows to deploy to Azure, refer to https://github.com/Azure/actions-workflow-samples
