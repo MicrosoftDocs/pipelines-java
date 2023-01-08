@@ -30,8 +30,8 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         # Artifact name
-        name: king
-        path: ${{ github.workspace }}
+        name: java-app
+        path: '${{ github.workspace }}/target/*.jar'
         
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v2.2.5
@@ -40,7 +40,7 @@ jobs:
         app-name: azjavaapp        
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_556C19A6DB5046FC8539A2A252542DDD }}             
         # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
-        package: king/target/*.jar
+        package: '*.jar'
         
     
 
