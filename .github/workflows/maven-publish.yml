@@ -31,7 +31,7 @@ jobs:
       with:
         # Artifact name
         name: java-app
-        path: '${{ github.workspace }}/target/*.jar'
+        path: ${{ github.workspace }}
         
   deploy:
     permissions:
