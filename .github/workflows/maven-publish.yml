@@ -55,7 +55,7 @@ jobs:
         with:
           app-name: 'azjavaapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_556C19A6DB5046FC8539A2A252542DDD }}
-          package: java-app/target/*.jar
+          package: '${{ github.workspace }}/target/*.jar'
     
 
       
