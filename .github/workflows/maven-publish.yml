@@ -31,6 +31,7 @@ jobs:
       with:
         # Artifact name
         name: king
+        path: ${{ github.workspace }}
        
     
 
