@@ -29,12 +29,13 @@ jobs:
         java-version: ${{ env.JAVA_VERSION }}
     - name: Build with Maven
       run: mvn package --file pom.xml
+      working-directory: my-app-path
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with: 
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ env.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/target/*.jar'
+        package: my-app-path/target/*.jar
         
   # For more information on GitHub Actions for Azure, refer to https://github.com/Azure/Actions
   # For more samples to get started with GitHub Action workflows to deploy to Azure, refer to https://github.com/Azure/actions-workflow-samples
