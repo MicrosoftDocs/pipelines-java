@@ -32,3 +32,11 @@ or trademarks, whether by implication, estoppel or otherwise.
 
 ## Troubleshooting
 Checking for pr changes
+
+Adding some changes to YAML like below
+
+trigger: none
+
+pr:
+  - master
+
