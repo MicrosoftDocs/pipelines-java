@@ -7,8 +7,8 @@ pipeline {
     }
 
     stages {
-        stage('Checkout'){
-            steps{
+        stage('Checkout') {
+            steps {
                 // Get some code from a GitHub repository
                 git branch: 'main',
                     url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
@@ -22,8 +22,8 @@ pipeline {
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
-        stage('Deploy'){
-            steps{
+        stage('Deploy') {
+            steps {
                 echo 'Deploying'
             }
             
