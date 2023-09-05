@@ -14,6 +14,13 @@ pipeline {
                     url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
             }
         }
+        stage('get_commit_msg') {
+            steps {
+                script {
+                    env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
+                }
+            }
+        }
         stage('Build') {
             steps {
                 // Run Maven on a Unix agent.
