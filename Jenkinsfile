@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-                    echo ${GIT_COMMIT_MSG}
+                    echo $GIT_COMMIT_MSG
                 }
             }
         }
