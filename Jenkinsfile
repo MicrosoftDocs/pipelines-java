@@ -8,7 +8,7 @@ pipeline {
         stage ('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://gitlab.com/nanu1605/pipelines-java.git'
+                    url: 'https://github.com/rudranshrocks7/pipelines-java.git'
             }
         }
         stage('Build') {
@@ -28,9 +28,9 @@ pipeline {
             steps {
                 echo "Deploying"
                 deploy adapters: [tomcat9 (
-                    credentialsId: 'tomcat-admin',
+                    credentialsId: 'tomcat',
                     path: '',
-                    url: 'http://20.230.1.180:8088/'
+                    url: 'http://74.249.99.250:8088/'
                 )],
                 contextPath: 'finalTest',
                 onFailure: 'false',
