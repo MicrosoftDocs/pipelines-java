@@ -1,43 +1,42 @@
 pipeline {
     agent any
-
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
-
     stages {
-        stage('Checkout') {
+        stage ('Checkout') {
             steps {
-                // Get some code from a GitHub repository
                 git branch: 'main',
-                    url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
-            }
-        }
-        stage('get_commit_msg') {
-            steps {
-                script {
-                    env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-                    echo ${GIT_COMMIT}
-                }
+                    url: 'https://gitlab.com/nanu1605/pipelines-java.git'
             }
         }
         stage('Build') {
             steps {
-                // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
-                // To run Maven on a Windows agent, use
-                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
         }
-        stage('Deploy') {
+        stage('Install') {
             steps {
-                echo 'Deploying'
+                sh "mvn install"
             }
-            
+        }
+        stage ('Deploy') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo "Deploying"
+                deploy adapters: [tomcat9 (
+                    credentialsId: 'tomcat-admin',
+                    path: '',
+                    url: 'http://20.230.1.180:8088/'
+                )],
+                contextPath: 'finalTest',
+                onFailure: 'false',
+                war: '**/*.war'
+            }
             post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
                 success {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.war'
