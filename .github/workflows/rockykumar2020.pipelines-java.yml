@@ -1,0 +1,28 @@
+name: project1/RockyKumar2020.pipelines-java
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.1.0
+    - name: Setup Java 8
+      uses: actions/setup-java@v3.13.0
+      with:
+        distribution: zulu
+        java-version: '8'
+    - name: Run maven
+      run: mvn --file pom.xml package
+      env:
+        MAVEN_OPTS: "-Xmx3072m"
+    - name: Publish test results
+      uses: EnricoMi/publish-unit-test-result-action@v2.11.0
+      if: always()
+      with:
+        junit_files: "**/surefire-reports/TEST-*.xml"
