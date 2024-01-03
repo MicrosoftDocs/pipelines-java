@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/bluesspeak/Learning-2024/_apis/build/status%2FDermotFanning.pipelines-java-df?branchName=main)](https://dev.azure.com/bluesspeak/Learning-2024/_build/latest?definitionId=2&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
