@@ -1,3 +1,4 @@
+[![Build Status](https://mike-duvall-personal.visualstudio.com/MyFirstProject/_apis/build/status%2Fmike-duvall.pipelines-java?branchName=main)](https://mike-duvall-personal.visualstudio.com/MyFirstProject/_build/latest?definitionId=18&branchName=main)
 
 # Contributing
 
