@@ -8,7 +8,7 @@ trigger:
 
 pool:
   vmImage: 'windows-latest' # other options: 'macOS-latest', 'windows-latest', 'ubuntu-latest'
-  demands: Agent.Version -greater 2.198.3
+  # demands: Agent.Version -greater 2.198.3
       
 steps:
 - task: Maven@3
